@@ -31,12 +31,30 @@ def create_app():
 
     # Import the various routes
     from src.views import views
-    from src.customers.customers import customers
-    from src.products.products  import products
+    from src.accounts.accounts import accounts
+    from src.followers.followers  import followers
+    from src.posts.posts import posts
+    from src.likes.likes  import likes
+    from src.comments.comments import comments
+    from src.recipes.recipes  import recipes
+    from src.savedRecipes.savedRecipes import savedRecipes
+    from src.ingredients.ingredients  import ingredients
+    from src.skillLevel.skillLevel import skillLevel
+    from src.cuisine.cuisine  import cuisine
+    from src.equipment.equipment import equipment
 
     # Register the routes that we just imported so they can be properly handled
     app.register_blueprint(views,       url_prefix='/v')
-    app.register_blueprint(customers,   url_prefix='/c')
-    app.register_blueprint(products,    url_prefix='/p')
+    app.register_blueprint(accounts,   url_prefix='/a')
+    app.register_blueprint(followers,    url_prefix='/f')
+    app.register_blueprint(posts,   url_prefix='/p')
+    app.register_blueprint(likes,    url_prefix='/l')
+    app.register_blueprint(comments,   url_prefix='/c')
+    app.register_blueprint(recipes,    url_prefix='/r')
+    app.register_blueprint(savedRecipes,   url_prefix='/sr')
+    app.register_blueprint(ingredients,    url_prefix='/i')
+    app.register_blueprint(skillLevel,   url_prefix='/sl')
+    app.register_blueprint(cuisine,    url_prefix='/cu')
+    app.register_blueprint(equipment,   url_prefix='/eq')
 
     return app
