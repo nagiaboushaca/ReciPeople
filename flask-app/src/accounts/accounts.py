@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -24,10 +24,39 @@ def get_accounts():
 
 # Add a new account to the database
 @accounts.route('/accounts', methods=['POST'])
-def post_accounts():
+def new_account():
+
+    the_data = request.json
+    current_app.logger.info(the_data)
+
+    username = the_data['username']
+    password = the_data['pword']
+    first_name = the_data['first_name']
+    last_name = the_data['last_name']
+    email = the_data['email']
+    phone = the_data['phone_number']
+    birthdate = the_data['birthdate']
+    bio = the_data['bio']
+
+    query = '''
+    insert into Accounts Values("{}", "{}", "{}", "{}", "{}", "{}", "{}", {})
+    '''.format(username, password, birthdate, first_name, last_name, bio, email, phone)
+    
+    # query = 'INSERT into Accounts VALUES ("'
+    # query += username + '", "'
+    # query += password + '", "'
+    # query += str(birthdate) + '", "'
+    # query += first_name + '", "'
+    # query += last_name + '", "'
+    # query += bio + '", "'
+    # query += email + '", "'
+    # query += str(phone) + ')'
+    current_app.logger.info(query)
+
     cursor = db.get_db().cursor()
-    query = ''
     cursor.execute(query)
+    db.get_db().commit()
+
 
 # Gets all account data for a given username
 @accounts.route('/accounts/{username}', methods=['GET'])
