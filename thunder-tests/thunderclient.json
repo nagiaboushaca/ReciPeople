@@ -54,5 +54,25 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "1197cd28-440d-4b20-9d5b-a96d7890a4e3",
+    "colId": "fc4f1a61-99f5-492e-91ff-430318dd3511",
+    "containerId": "",
+    "name": "TestGetAccount",
+    "url": "localhost:8001/a/accounts/{username}",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-17T21:42:33.327Z",
+    "modified": "2023-04-17T21:48:24.624Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "username",
+        "value": "sena.szczepaniuk",
+        "isPath": true
+      }
+    ],
+    "tests": []
   }
 ]
