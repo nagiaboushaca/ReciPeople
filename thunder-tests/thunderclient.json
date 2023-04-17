@@ -40,5 +40,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "d7fb0c9c-1d0c-4630-91db-4048623dd495",
+    "colId": "fc4f1a61-99f5-492e-91ff-430318dd3511",
+    "containerId": "",
+    "name": "TestGetAccounts",
+    "url": "localhost:8001/a/accounts",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-17T21:36:50.582Z",
+    "modified": "2023-04-17T21:37:06.344Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

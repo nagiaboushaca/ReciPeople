@@ -9,7 +9,7 @@ posts = Blueprint('posts', __name__)
 @posts.route('/posts/{poster}', methods=['GET'])
 def get_posts(poster):
     cursor = db.get_db().cursor()
-    query = 'select * from posts where poster =' + poster
+    query = 'select * from Posts where poster =' + poster
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
     json_data = []
@@ -28,7 +28,7 @@ def create_post(poster):
 
 # Deletes a post for a given user
 @posts.route('/posts/{poster}', methods=['DELETE'])
-def delete_post(poster):
+def delete_post(poster, postID):
     cursor = db.get_db().cursor()
     query = ''
     cursor.execute(query)
