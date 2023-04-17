@@ -33,40 +33,57 @@ def post_accounts():
 @accounts.route('/accounts/{username}', methods=['POST'])
 def get_account(username):
     cursor = db.get_db().cursor()
-    query = ''
+    query = 'select * from accounts where username =' + username
     cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
+
 
 # Deletes the account of a given username
 @accounts.route('/accounts/{username}', methods=['DELETE'])
 def delete_account(username):
     cursor = db.get_db().cursor()
+    query = 'delete * from accounts where username =' + username
+    cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
 
 # Gets the password of the given account
 @accounts.route('/accounts/{pword}', methods=['GET'])
-def get_account_pword():
+def get_account_pword(username):
     cursor = db.get_db().cursor()
-    query = ''
+    query = 'select pword from accounts where username =' + username
     cursor.execute(query)
 
 # Updates the password of the given account
 @accounts.route('/accounts/{pword}', methods=['POST'])
-def update_account_pword():
+def update_account_pword(username, pword):
     cursor = db.get_db().cursor()
-    query = ''
+    query = 'update accounts set pword =' + pword + ' where username =' + username
     cursor.execute(query)
 
 # Gets the bio of the given account
 @accounts.route('/accounts/{bio}', methods=['GET'])
-def get_account_bio():
+def get_account_bio(username):
     cursor = db.get_db().cursor()
-    query = ''
+    query = 'select bio from accounts where username = ' + username
     cursor.execute(query)
 
 # Updates the bio of the given account
 @accounts.route('/accounts/{bio}', methods=['POST'])
-def update_account_bio():
+def update_account_bio(bio, username):
     cursor = db.get_db().cursor()
-    query = ''
+    query = 'update accounts set bio =' + bio + ' where username =' + username
     cursor.execute(query)
 
 # Sets the bio of the given account to an empty string

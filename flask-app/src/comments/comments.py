@@ -6,12 +6,16 @@ from src import db
 comments = Blueprint('comments', __name__)
 
 # Gets all the comments and related details for a given post
-@comments.route('/comments', methods=['GET'])
-def get_comments():
+@comments.route('/comments/{postID}', methods=['GET'])
+def get_comments(postID):
     cursor = db.get_db().cursor()
-    query = '''
-    '''
+    query = 'select * from comments where post_id =' + postID
     cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
 
 # Adds a comment to a given post 
 @comments.route('/comments', methods=['POST'])
