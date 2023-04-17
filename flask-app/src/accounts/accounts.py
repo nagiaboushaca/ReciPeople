@@ -23,54 +23,54 @@ def get_accounts():
     return jsonify(json_data)
 
 # Add a new account to the database
-@accounts.route('/addAccount', methods=['POST'])
+@accounts.route('/accounts', methods=['POST'])
 def post_accounts():
     cursor = db.get_db().cursor()
     query = ''
     cursor.execute(query)
 
 # Gets all account data for a given username
-@accounts.route('/getByUsername')
-def get_accounts_by_username():
+@accounts.route('/accounts/{username}', methods=['POST'])
+def get_account(username):
     cursor = db.get_db().cursor()
     query = ''
     cursor.execute(query)
 
 # Deletes the account of a given username
-@accounts.route('/deleteAccount', methods=['DELETE'])
-def delete_accounts_by_username():
+@accounts.route('/accounts/{username}', methods=['DELETE'])
+def delete_account(username):
     cursor = db.get_db().cursor()
 
 # Gets the password of the given account
-@accounts.route('/getPassword')
-def get_accounts_password():
+@accounts.route('/accounts/{pword}', methods=['GET'])
+def get_account_pword():
     cursor = db.get_db().cursor()
     query = ''
     cursor.execute(query)
 
 # Updates the password of the given account
-@accounts.route('/updatePassword')
-def update_accounts_password():
+@accounts.route('/accounts/{pword}', methods=['POST'])
+def update_account_pword():
     cursor = db.get_db().cursor()
     query = ''
     cursor.execute(query)
 
 # Gets the bio of the given account
-@accounts.route('/getBio')
-def get_accounts_bio():
+@accounts.route('/accounts/{bio}', methods=['GET'])
+def get_account_bio():
     cursor = db.get_db().cursor()
     query = ''
     cursor.execute(query)
 
 # Updates the bio of the given account
-@accounts.route('/updateBio')
-def update_accounts_bio():
+@accounts.route('/accounts/{bio}', methods=['POST'])
+def update_account_bio():
     cursor = db.get_db().cursor()
     query = ''
     cursor.execute(query)
 
 # Sets the bio of the given account to an empty string
-@accounts.route('/setBioEmpty')
+@accounts.route('/accounts/{bio}', methods=['DELTE'])
 def delete_accounts_bio():
     cursor = db.get_db().cursor()
 
