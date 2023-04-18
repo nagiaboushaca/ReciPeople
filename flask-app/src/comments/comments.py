@@ -9,7 +9,7 @@ comments = Blueprint('comments', __name__)
 @comments.route('/comments/{postID}', methods=['GET'])
 def get_comments(postID):
     cursor = db.get_db().cursor()
-    query = 'select * from Comments where post_id =' + postID
+    query = 'select * from Comments where post_id ={}'.format(postID)
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
     json_data = []

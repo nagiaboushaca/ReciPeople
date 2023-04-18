@@ -42,10 +42,14 @@ def create_app():
     from src.skillLevel.skillLevel import skillLevel
     from src.cuisine.cuisine  import cuisine
     from src.equipment.equipment import equipment
+    from src.josie.josie import josie
+    from src.brock.brock import brock
 
     # Register the routes that we just imported so they can be properly handled
     app.register_blueprint(views,       url_prefix='/v')
-    app.register_blueprint(accounts,   url_prefix='/a')
+    #app.register_blueprint(accounts,   url_prefix='/a')
+    app.register_blueprint(josie,    url_prefix='/j')
+    app.register_blueprint(brock,    url_prefix='/b')
     app.register_blueprint(followers,    url_prefix='/f')
     app.register_blueprint(posts,   url_prefix='/p')
     app.register_blueprint(likes,    url_prefix='/l')
