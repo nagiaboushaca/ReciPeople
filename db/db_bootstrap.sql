@@ -24,7 +24,6 @@ use ReciPeople;
 CREATE TABLE IF NOT EXISTS Accounts (
     username varchar(20) PRIMARY KEY,
     pword varchar(20) NOT NULL,
-    birthdate DATETIME NOT NULL,
     first_name varchar(20) NOT NULL,
     last_name varchar(20) NOT NULL,
     bio varchar(200),
@@ -145,14 +144,14 @@ CREATE TABLE IF NOT EXISTS Saved_recipes (
 -- Add sample data. 
 
 INSERT INTO Accounts
-VALUES ('nagiaboushaca', 'secretpassword', '2003/04/23',
+VALUES ('nagiaboushaca', 'secretpassword',
         'Nagi', 'Aboushaca', 'I love food!!!', 'nagishaca@gmail.com', '2014508996' );
 INSERT INTO Accounts
-VALUES ('wcolsey', 'bjorn', '2002/05/06',
+VALUES ('wcolsey', 'bjorn',
         'Will', 'Colsey', 'Chef. Northeastern. I love Dogs.',
         'wcolsey@gmail.com', '8583425074' );
 INSERT INTO Accounts
-VALUES ('sena.szczepaniuk', 'sean', '2001/09/04',
+VALUES ('sena.szczepaniuk', 'sean',
         'Sena', 'Szczepaniuk', 'I love to code! And make ER diagrams!!',
         'senaszczepaniuk@gmail.com','9178882222' );
 

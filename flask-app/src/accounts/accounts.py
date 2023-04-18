@@ -35,27 +35,22 @@ def new_account():
     last_name = the_data['last_name']
     email = the_data['email']
     phone = the_data['phone_number']
-    birthdate = the_data['birthdate']
     bio = the_data['bio']
 
     query = '''
-    insert into Accounts Values("{}", "{}", "{}", "{}", "{}", "{}", "{}", {})
-    '''.format(username, password, birthdate, first_name, last_name, bio, email, phone)
-    
-    # query = 'INSERT into Accounts VALUES ("'
-    # query += username + '", "'
-    # query += password + '", "'
-    # query += str(birthdate) + '", "'
-    # query += first_name + '", "'
-    # query += last_name + '", "'
-    # query += bio + '", "'
-    # query += email + '", "'
-    # query += str(phone) + ')'
-    current_app.logger.info(query)
+    insert into Accounts values("{}", "{}", "{}", "{}", "{}", "{}", "{}")
+    '''.format(username, password, first_name, last_name, bio, email, phone)
 
     cursor = db.get_db().cursor()
     cursor.execute(query)
     db.get_db().commit()
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
 
 
 # Gets all account data for a given username
