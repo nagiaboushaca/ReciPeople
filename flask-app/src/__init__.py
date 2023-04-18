@@ -31,11 +31,7 @@ def create_app():
 
     # Import the various routes
     from src.views import views
-    from src.accounts.accounts import accounts
-    from src.followers.followers  import followers
     from src.posts.posts import posts
-    from src.likes.likes  import likes
-    from src.comments.comments import comments
     from src.recipes.recipes  import recipes
     from src.savedRecipes.savedRecipes import savedRecipes
     from src.ingredients.ingredients  import ingredients
@@ -47,13 +43,9 @@ def create_app():
 
     # Register the routes that we just imported so they can be properly handled
     app.register_blueprint(views,       url_prefix='/v')
-    #app.register_blueprint(accounts,   url_prefix='/a')
     app.register_blueprint(josie,    url_prefix='/j')
     app.register_blueprint(brock,    url_prefix='/b')
-    app.register_blueprint(followers,    url_prefix='/f')
     app.register_blueprint(posts,   url_prefix='/p')
-    app.register_blueprint(likes,    url_prefix='/l')
-    app.register_blueprint(comments,   url_prefix='/c')
     app.register_blueprint(recipes,    url_prefix='/r')
     app.register_blueprint(savedRecipes,   url_prefix='/sr')
     app.register_blueprint(ingredients,    url_prefix='/i')
