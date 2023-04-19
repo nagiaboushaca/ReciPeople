@@ -114,7 +114,7 @@ def get_account_pword(username):
     return jsonify(json_data)
 
 # Updates the password of the given account
-@josie.route('/accountPword/<username>/<pword>', methods=['POST'])
+@josie.route('/accountPword/<username>/<pword>', methods=['PUT'])
 def update_account_pword(username, pword):
     cursor = db.get_db().cursor()
     query = 'update Accounts set pword="{}" where username="{}"'.format(pword, username)
@@ -146,7 +146,7 @@ def get_account_bio(username):
     return jsonify(json_data)
 
 # Updates the bio of the given account
-@josie.route('/accountBio/<username>/<bio>', methods=['POST'])
+@josie.route('/accountBio/<username>/<bio>', methods=['PUT'])
 def update_account_bio(username, bio):
     cursor = db.get_db().cursor()
     query = 'update Accounts set bio ="{}" where username="{}"'.format(bio, username)
@@ -164,7 +164,7 @@ def update_account_bio(username, bio):
     return jsonify(json_data)
 
 # Sets the bio of the given account to an empty string
-@josie.route('/accountBioEmpty/<username>', methods=['POST'])
+@josie.route('/accountBioEmpty/<username>', methods=['PUT'])
 def delete_accounts_bio(username):
     cursor = db.get_db().cursor()
     query = 'update Accounts set bio="" where username="{}"'.format(username)
@@ -201,7 +201,7 @@ def follow_user(username, follow):
 
 
 # Unfollows a user
-@josie.route('/unfollow/<username>/<unfollow>', methods=['POST'])
+@josie.route('/unfollow/<username>/<unfollow>', methods=['DELETE'])
 def unfollow_user(username, unfollow):
     cursor = db.get_db().cursor()
     query = 'delete * from FollowerRelationship where A="{}" and B="{}"'.format(username, unfollow)
