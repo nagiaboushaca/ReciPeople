@@ -317,5 +317,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "b30315c0-9971-4266-b840-8a2f38d4da7e",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "GetComments",
+    "url": "localhost:8001/j/comments",
+    "method": "GET",
+    "sortNum": 170000,
+    "created": "2023-04-19T21:23:21.502Z",
+    "modified": "2023-04-19T21:23:55.119Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"post_id\": \"1\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

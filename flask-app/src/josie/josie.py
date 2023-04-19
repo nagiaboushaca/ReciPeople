@@ -309,13 +309,15 @@ def get_comments():
     current_app.logger.info(the_data)
     postID = the_data['post_id']
     cursor = db.get_db().cursor()
-    query = 'select * from Comments where post_id={}'.format(postID)
+    query = 'select content, commenter from Comments where post_id={}'.format(postID)
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
+    
+    return jsonify(json_data)
 
 # Adds a comment to a given post 
 @josie.route('/comments', methods=['POST'])
