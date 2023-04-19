@@ -46,8 +46,8 @@ def new_account():
 
 
     query = '''
-    insert into Accounts values("{}", "{}", "{}", "{}", "{}", "{}", {})
-    '''.format(username, password, first_name, last_name, bio, email, phone)
+    insert into Accounts values("{}", "{}", "{}", "{}", "{}", "{}", "{}")
+    '''.format(username, password, first_name, last_name, bio, email, str(phone))
     
     cursor = db.get_db().cursor()
     cursor.execute(query)
