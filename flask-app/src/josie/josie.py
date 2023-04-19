@@ -225,11 +225,12 @@ def add_comments():
     return query
 
 # Deletes a comment from a given post 
-@josie.route('/comments', methods=['DELETE'])
-def delete_comments():
+@josie.route('/comments/<comment_id>/<post_id>', methods=['DELETE'])
+def delete_comments(comment_id, post_id):
     cursor = db.get_db().cursor()
     query = '''
-    '''
+    delete from Comments where comment_id ={} and post_id ={}
+    '''.format(comment_id, post_id)
     cursor.execute(query)
     db.get_db().commit()
     return query

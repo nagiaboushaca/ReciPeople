@@ -70,13 +70,8 @@ def add_saved_recipe(username, recipe_id):
     cursor = db.get_db().cursor()
     query = 'insert into Saved_recipes(username, saved_recipe_id) values("{}", {})'.format(username, recipe_id)
     cursor.execute(query)
-    column_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(column_headers, row)))
-
-    return jsonify(json_data)
+    db.get_db().commit()
+    return query
 
 # Delete a recipe from a user's saved recipes
 @brock.route('/saved_recipes/<username>/<recipe_id>', methods=['DELETE'])
@@ -84,13 +79,8 @@ def delete_saved_recipe(username, recipe_id):
     cursor = db.get_db().cursor()
     query = 'delete from Saved_recipes where username ="{}" and saved_recipe_id = {}'.format(username, recipe_id)
     cursor.execute(query)
-    column_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(column_headers, row)))
-
-    return jsonify(json_data)
+    db.get_db().commit()
+    return query
 
 # Get all recipes that use the given ingredient name
 @brock.route('/ingredients/<name>', methods=['GET'])
