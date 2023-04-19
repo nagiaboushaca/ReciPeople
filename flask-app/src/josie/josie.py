@@ -10,7 +10,7 @@ josie = Blueprint('josie', __name__)
 def get_accounts():
     cursor = db.get_db().cursor()
     query = '''
-    SELECT username, phone_number, email_address, bio, last_name, first_name, birthdate, pword
+    SELECT *
     FROM Accounts
     '''
     cursor.execute(query)
