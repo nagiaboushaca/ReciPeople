@@ -37,7 +37,7 @@ def get_recipe(recipe_id):
     return jsonify(json_data)
 
 # Get all recipes with a given recipe name
-@brock.route('/recipes/<recipe_name', methods=['GET'])
+@brock.route('/recipes/<recipe_name>', methods=['GET'])
 def get_recipe_by_name(recipe_name):
     cursor = db.get_db().cursor()
     query = 'select * from Recipes where recipe_name ="{}"'.format(recipe_name)
@@ -70,17 +70,35 @@ def add_saved_recipe(username, recipe_id):
     cursor = db.get_db().cursor()
     query = 'insert into Saved_recipes(username, saved_recipe_id) values("{}", {})'.format(username, recipe_id)
     cursor.execute(query)
+    cursor2 = db.get_db().cursor()
+    query2 = 'select username, saved_recipe_id from Saved_recipes where username="{}" and saved_recipe_id={}'.format(username, recipe_id)
+    cursor2.execute(query2)
     db.get_db().commit()
-    return query
+    column_headers = [x[0] for x in cursor2.description]
+    json_data = []
+    theData = cursor2.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
 
 # Delete a recipe from a user's saved recipes
 @brock.route('/saved_recipes/<username>/<recipe_id>', methods=['DELETE'])
 def delete_saved_recipe(username, recipe_id):
     cursor = db.get_db().cursor()
-    query = 'delete from Saved_recipes where username ="{}" and saved_recipe_id = {}'.format(username, recipe_id)
+    query = 'delete from Saved_recipes where username="{}" and saved_recipe_id={}'.format(username, recipe_id)
     cursor.execute(query)
+    cursor2 = db.get_db().cursor()
+    query2 = 'select count(*) from Saved_recipes where username="{}" and saved_recipe_id={}'.format(username, recipe_id)
+    cursor2.execute(query2)
     db.get_db().commit()
-    return query
+    column_headers = [x[0] for x in cursor2.description]
+    json_data = []
+    theData = cursor2.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
 
 # Get all recipes that use the given ingredient name
 @brock.route('/ingredients/<name>', methods=['GET'])
