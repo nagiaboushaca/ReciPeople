@@ -104,9 +104,14 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-04-18T21:23:47.955Z",
-    "modified": "2023-04-18T21:42:59.664Z",
+    "modified": "2023-04-19T20:27:47.587Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"bio\": \"not null\",\n    \"email\": \"something@123.com\",\n    \"first_name\": \"first\",\n    \"last_name\": \"last\",\n    \"phone_number\": \"9414457581\",\n    \"pword\": \"pword\",\n    \"username\": \"ANotherPerson\"\n  }",
+      "form": []
+    },
     "tests": []
   },
   {
