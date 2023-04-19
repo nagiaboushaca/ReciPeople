@@ -89,10 +89,10 @@ def get_account(username):
 
 
 # Deletes the account of a given username
-@josie.route('/accounts/{username}', methods=['DELETE'])
+@josie.route('/accounts/<username>', methods=['DELETE'])
 def delete_account(username):
     cursor = db.get_db().cursor()
-    query = 'delete * from Accounts where username ="{}"'.format(username)
+    query = 'delete from Accounts where username ="{}"'.format(username)
     cursor.execute(query)
     db.get_db().commit()
     return query
@@ -135,8 +135,8 @@ def get_account_bio(username):
     return jsonify(json_data)
 
 # Updates the bio of the given account
-@josie.route('/accountBio/<username>/<bio>}', methods=['POST'])
-def update_account_bio(bio, username):
+@josie.route('/accountBio/<username>/<bio>', methods=['POST'])
+def update_account_bio(username, bio):
     cursor = db.get_db().cursor()
     query = 'update Accounts set bio ="{}" where username ="{}"'.format(bio, username)
     cursor.execute(query)
@@ -233,3 +233,22 @@ def delete_comments():
     cursor.execute(query)
     db.get_db().commit()
     return query
+
+# Get the serving size of a recipe and scale the recipe
+@josie.route('/recipes/<recipe_id>/<serving_size>', methods=['GET'])
+def get_adjusted_recipe(recipe_id, serving_size):
+    cursor = db.get_db().cursor()
+    query = '''
+    select r.recipe_id, r.recipe_name, r.steps, r.recipe_time, r.skill_level_id,
+    r.serving_size AS original_serving_size, r.calories, r.cuisine_id,
+    i.ingredient_name, i.amount * {} / r.serving_size AS adjusted_amount, i.unit
+    from Recipes r
+    join Ingredients i on r.recipe_id = i.recipe_id
+    where r.recipe_id = {}
+    '''.format(serving_size, recipe_id)
+    cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
