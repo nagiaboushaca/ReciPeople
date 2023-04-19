@@ -31,13 +31,6 @@ def create_app():
 
     # Import the various routes
     from src.views import views
-    from src.posts.posts import posts
-    from src.recipes.recipes  import recipes
-    from src.savedRecipes.savedRecipes import savedRecipes
-    from src.ingredients.ingredients  import ingredients
-    from src.skillLevel.skillLevel import skillLevel
-    from src.cuisine.cuisine  import cuisine
-    from src.equipment.equipment import equipment
     from src.josie.josie import josie
     from src.brock.brock import brock
 
@@ -45,12 +38,5 @@ def create_app():
     app.register_blueprint(views,       url_prefix='/v')
     app.register_blueprint(josie,    url_prefix='/j')
     app.register_blueprint(brock,    url_prefix='/b')
-    app.register_blueprint(posts,   url_prefix='/p')
-    app.register_blueprint(recipes,    url_prefix='/r')
-    app.register_blueprint(savedRecipes,   url_prefix='/sr')
-    app.register_blueprint(ingredients,    url_prefix='/i')
-    app.register_blueprint(skillLevel,   url_prefix='/sl')
-    app.register_blueprint(cuisine,    url_prefix='/cu')
-    app.register_blueprint(equipment,   url_prefix='/eq')
 
     return app

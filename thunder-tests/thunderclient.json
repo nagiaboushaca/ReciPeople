@@ -207,5 +207,70 @@
       }
     ],
     "tests": []
+  },
+  {
+    "_id": "d5b0d3fa-340c-460c-806a-24db7ed8036c",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "TestGetBio",
+    "url": "localhost:8001/j/accountBio/{username}",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-04-19T00:49:02.161Z",
+    "modified": "2023-04-19T00:49:23.028Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "username",
+        "value": "sena.szczepaniuk",
+        "isPath": true
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "3c6b3fa8-c836-4947-810b-d458494843ea",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "TestUpdateBio",
+    "url": "localhost:8001/j/accountBio/{username}/{bio}",
+    "method": "POST",
+    "sortNum": 110000,
+    "created": "2023-04-19T00:49:54.222Z",
+    "modified": "2023-04-19T00:53:51.462Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "username",
+        "value": "sena.szczepaniuk",
+        "isPath": true
+      },
+      {
+        "name": "bio",
+        "value": "check out my new bio",
+        "isPath": true
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "3a488493-315c-4ee6-b58a-11dba4816eac",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "TestEmptyBio",
+    "url": "localhost:8001/j/accountBioEmpty/{username}",
+    "method": "POST",
+    "sortNum": 120000,
+    "created": "2023-04-19T00:54:20.737Z",
+    "modified": "2023-04-19T00:54:45.018Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "username",
+        "value": "sena.szczepaniuk",
+        "isPath": true
+      }
+    ],
+    "tests": []
   }
 ]
