@@ -227,7 +227,7 @@ def unfollow_user():
     username = the_data['username']
     unfollow = the_data['unfollow']
     cursor = db.get_db().cursor()
-    query = 'delete * from FollowerRelationship where A="{}" and B="{}"'.format(username, unfollow)
+    query = 'delete from FollowerRelationship where A="{}" and B="{}"'.format(username, unfollow)
     cursor.execute(query)
     cursor2 = db.get_db().cursor()
     query2 = 'select count(*) from FollowerRelationship where A="{}" and B="{}"'.format(username, unfollow)
@@ -246,15 +246,16 @@ def unfollow_user():
 def get_likes():
     the_data = request.json
     current_app.logger.info(the_data)
-    postID = the_data['post_id']
+    post_id = the_data['post_id']
     cursor = db.get_db().cursor()
-    query = 'select liker from Likes where post_id={}'.format(postID)
+    query = 'select liker from Likes where post_id={}'.format(post_id)
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
+    return jsonify(json_data)
 
 
 # Adds an account to the like table of a given post
@@ -262,13 +263,13 @@ def get_likes():
 def add_like():
     the_data = request.json
     current_app.logger.info(the_data)
-    postID = the_data['post_id']
+    post_id = the_data['post_id']
     liker = the_data['liker']
     cursor = db.get_db().cursor()
-    query = 'insert into Likes(liker) values("{}")where post_id={}'.format(liker, postID)
+    query = 'insert into Likes(liker, post_id) values("{}", {})'.format(liker, post_id)
     cursor.execute(query)
     cursor2 = db.get_db().cursor()
-    query2 = 'select liker, post_id from Likes where liker="{}" and post_id={}'.format(liker, postID)
+    query2 = 'select * from Likes where liker="{}" and post_id="{}"'.format(liker, post_id)
     cursor2.execute(query2)
     db.get_db().commit()
     column_headers = [x[0] for x in cursor2.description]
