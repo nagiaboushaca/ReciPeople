@@ -209,3 +209,20 @@ def get_recipes_by_equipment():
         json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
+
+# Get the cuisine name from the cuisine ID 
+@brock.route('/cuisineName', methods=['GET'])
+def get_cuisine_name():
+    the_data = request.json
+    current_app.logger.info(the_data)
+    cuisine_id = the_data['cuisine_id']
+    cursor = db.get_db().cursor()
+    query = 'select cuisine_name from Cuisines where cuisine_id={}'.format(cuisine_id)
+    cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)

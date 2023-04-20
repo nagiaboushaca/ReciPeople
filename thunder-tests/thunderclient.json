@@ -553,5 +553,43 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "10ee956f-5062-4422-8c01-90240523fe22",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "AddComment2",
+    "url": "localhost:8001/j/comments",
+    "method": "POST",
+    "sortNum": 215000,
+    "created": "2023-04-20T19:24:27.434Z",
+    "modified": "2023-04-20T19:24:53.914Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"commenter\": \"wcolsey\",\n  \"post_id\": \"1\",\n  \"content\": \"Loved this recipe!\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "df616c97-757a-4673-a9ec-77aaa92b4c49",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "CuisineName",
+    "url": "localhost:8001/b/cuisineName",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-04-20T19:27:20.050Z",
+    "modified": "2023-04-20T19:27:50.026Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"cuisine_id\":\"3\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
