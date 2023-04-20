@@ -1,101 +1,5 @@
 [
   {
-    "_id": "88175af4-17b2-4389-abdd-eaae3b1c72a5",
-    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
-    "containerId": "",
-    "name": "GET /",
-    "url": "localhost:8001/",
-    "method": "GET",
-    "sortNum": 10000,
-    "created": "2023-03-29T12:09:19.195Z",
-    "modified": "2023-03-29T12:10:39.391Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "9353a5d5-9e5c-46d6-b473-584da0370f4c",
-    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
-    "containerId": "",
-    "name": "GET Customers",
-    "url": "localhost:8001/c/customers",
-    "method": "GET",
-    "sortNum": 20000,
-    "created": "2023-03-29T12:12:14.723Z",
-    "modified": "2023-03-29T12:12:24.417Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "cc8bc863-0411-4b92-bafd-af353df3b23b",
-    "colId": "cd143d75-fd2b-4039-a514-cd7a5005de02",
-    "containerId": "",
-    "name": "GET Most Expensive Products",
-    "url": "localhost:8001/p/mostExpensive",
-    "method": "GET",
-    "sortNum": 30000,
-    "created": "2023-03-29T12:13:28.581Z",
-    "modified": "2023-03-29T12:13:48.326Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "d7fb0c9c-1d0c-4630-91db-4048623dd495",
-    "colId": "fc4f1a61-99f5-492e-91ff-430318dd3511",
-    "containerId": "",
-    "name": "TestGetAccounts",
-    "url": "localhost:8001/a/accounts",
-    "method": "GET",
-    "sortNum": 10000,
-    "created": "2023-04-17T21:36:50.582Z",
-    "modified": "2023-04-17T21:37:06.344Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "1197cd28-440d-4b20-9d5b-a96d7890a4e3",
-    "colId": "fc4f1a61-99f5-492e-91ff-430318dd3511",
-    "containerId": "",
-    "name": "TestGetAccount",
-    "url": "localhost:8001/a/accounts/{username}",
-    "method": "GET",
-    "sortNum": 20000,
-    "created": "2023-04-17T21:42:33.327Z",
-    "modified": "2023-04-17T21:48:24.624Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "username",
-        "value": "sena.szczepaniuk",
-        "isPath": true
-      }
-    ],
-    "tests": []
-  },
-  {
-    "_id": "56c6134e-04f5-4e66-a403-2dc9af75a44e",
-    "colId": "fc4f1a61-99f5-492e-91ff-430318dd3511",
-    "containerId": "",
-    "name": "TestGetAccount2",
-    "url": "localhost:8001/a/accounts/{username}",
-    "method": "GET",
-    "sortNum": 30000,
-    "created": "2023-04-17T21:58:36.639Z",
-    "modified": "2023-04-17T21:59:26.694Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "username",
-        "value": "nagiaboushaca",
-        "isPath": true
-      }
-    ],
-    "tests": []
-  },
-  {
     "_id": "4aac684f-08b1-4c93-a605-eb80553c1630",
     "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
     "containerId": "",
@@ -461,6 +365,191 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"recipe_id\": \"3\",\n  \"serving_size\": \"2\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "007a44ee-23e3-4ed3-aaf6-3b005f38bfe5",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetRecipes",
+    "url": "localhost:8001/b/recipes",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-04-20T18:57:16.572Z",
+    "modified": "2023-04-20T18:58:27.783Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "7aef1521-c587-4cdc-be57-e8a42941e9dc",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetSpecificRecipe",
+    "url": "localhost:8001/b/recipeSpecific",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-04-20T18:58:49.903Z",
+    "modified": "2023-04-20T18:59:12.415Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recipe_id\": \"1\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "57595b32-5e3f-4b7c-9269-ae8ab93f470e",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetByRecipeName",
+    "url": "localhost:8001/b/recipeName",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-04-20T18:59:50.236Z",
+    "modified": "2023-04-20T19:00:24.575Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recipe_name\": \"Broccoli Cheddar Pasta\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c3fb17a5-24ec-4a35-b440-69a7d72f59df",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetSavedRecipes",
+    "url": "localhost:8001/b/saved_recipes",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-04-20T19:00:57.849Z",
+    "modified": "2023-04-20T19:01:18.025Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"username\":\"sena.szczepaniuk\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "eae38d06-b42d-428f-af12-1093bcdf9b38",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "AddSavedRecipe",
+    "url": "localhost:8001/b/saved_recipes",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2023-04-20T19:05:13.677Z",
+    "modified": "2023-04-20T19:05:55.537Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"username\":\"sena.szczepaniuk\",\n  \"recipe_id\": \"1\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9040cb8a-84d8-497c-96e6-552138439758",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "RemoveSavedRecipe",
+    "url": "localhost:8001/b/saved_recipes",
+    "method": "DELETE",
+    "sortNum": 60000,
+    "created": "2023-04-20T19:06:22.846Z",
+    "modified": "2023-04-20T19:06:52.602Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"username\":\"sena.szczepaniuk\",\n  \"recipe_id\":\"1\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "22268586-e1a1-4865-b43c-273f48beee7b",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetByIngredientName",
+    "url": "localhost:8001/b/ingredientName",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-04-20T19:07:30.913Z",
+    "modified": "2023-04-20T19:08:08.981Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"ingredient_name\":\"broccoli\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "2f1697ce-9475-4455-9258-3ab1691d5c20",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetSkillLevel",
+    "url": "localhost:8001/b/skill_level",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2023-04-20T19:08:33.994Z",
+    "modified": "2023-04-20T19:09:18.502Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recipe_id\":\"2\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f36b18f3-406f-4991-88fa-384ec3e89c33",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetByTime",
+    "url": "localhost:8001/b/recipeTime",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2023-04-20T19:09:53.162Z",
+    "modified": "2023-04-20T19:10:22.904Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recipe_time\":\"50\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "54526aa5-2112-4131-9abf-0a0c870b52a1",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetByEquipment",
+    "url": "localhost:8001/b/equipment",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-04-20T19:12:59.357Z",
+    "modified": "2023-04-20T19:13:27.554Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"equipment_name\": \"pot\"\n}",
       "form": []
     },
     "tests": []
