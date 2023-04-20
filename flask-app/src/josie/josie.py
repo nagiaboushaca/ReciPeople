@@ -397,3 +397,21 @@ def get_adjusted_recipe():
     theData = cursor.fetchall()
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
+    return jsonify(json_data)
+
+# Get all posts route
+@josie.route('/posts', methods=['GET'])
+def get_posts():
+    cursor = db.get_db().cursor()
+    query = '''
+    SELECT *
+    FROM Posts
+    '''
+    cursor.execute(query)
+    column_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
