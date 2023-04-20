@@ -60,12 +60,12 @@
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2023-04-18T21:59:28.438Z",
-    "modified": "2023-04-19T20:54:18.603Z",
+    "modified": "2023-04-20T19:37:41.310Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"username\": \"ANotherPerson\"\n}",
+      "raw": "{\n  \"username_b\": \"ANotherPerson\",\n  \"pword_a\": \"pword\"\n}",
       "form": []
     },
     "tests": []
@@ -136,12 +136,12 @@
     "method": "PUT",
     "sortNum": 110000,
     "created": "2023-04-19T00:49:54.222Z",
-    "modified": "2023-04-19T20:58:41.013Z",
+    "modified": "2023-04-20T19:38:16.477Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"username\": \"sena.szczepaniuk\",\n  \"bio\": \"a whole new bio!\"\n}",
+      "raw": "{\n  \"username_a\": \"sena.szczepaniuk\",\n  \"bio\": \"a whole new bio!\"\n}",
       "form": []
     },
     "tests": []
@@ -155,12 +155,12 @@
     "method": "PUT",
     "sortNum": 120000,
     "created": "2023-04-19T00:54:20.737Z",
-    "modified": "2023-04-19T20:59:53.302Z",
+    "modified": "2023-04-20T19:38:35.150Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"username\": \"sena.szczepaniuk\"\n}",
+      "raw": "{\n  \"username_b\": \"sena.szczepaniuk\"\n}",
       "form": []
     },
     "tests": []
@@ -388,16 +388,16 @@
     "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
     "containerId": "",
     "name": "GetSpecificRecipe",
-    "url": "localhost:8001/b/recipeSpecific",
+    "url": "localhost:8001/b/recipeFromPost",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-20T18:58:49.903Z",
-    "modified": "2023-04-20T18:59:12.415Z",
+    "modified": "2023-04-20T19:36:20.341Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recipe_id\": \"1\"\n}",
+      "raw": "{\n  \"post_id_json\": \"1\"\n}",
       "form": []
     },
     "tests": []
