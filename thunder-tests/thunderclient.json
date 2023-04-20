@@ -445,5 +445,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "5ccbb9b5-b380-42df-a901-249d58754f49",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "ServingSize",
+    "url": "localhost:8001/j/recipeServingSize",
+    "method": "GET",
+    "sortNum": 240000,
+    "created": "2023-04-20T18:41:50.769Z",
+    "modified": "2023-04-20T18:43:15.744Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"recipe_id\": \"3\",\n  \"serving_size\": \"2\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

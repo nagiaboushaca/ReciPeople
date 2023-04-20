@@ -382,12 +382,11 @@ def get_adjusted_recipe():
     serving_size = the_data['serving_size']
     cursor = db.get_db().cursor()
     query = '''
-    select r.recipe_id, r.recipe_name, r.steps, r.recipe_time, r.skill_level_id,
-    r.serving_size AS original_serving_size, r.calories, r.cuisine_id,
-    i.ingredient_name, i.amount * {} / r.serving_size AS adjusted_amount, i.unit
-    from Recipes r
-    join Ingredients i on r.recipe_id = i.recipe_id
-    where r.recipe_id = {}
+    SELECT i.ingredient_name, i.amount * {} / r.serving_size AS adjusted_amount, i.unit
+    FROM Recipes r
+    JOIN Ingredients i ON r.recipe_id = i.recipe_id
+    WHERE r.recipe_id = {}
+    GROUP BY i.ingredient_name, i.amount, i.unit
     '''.format(serving_size, recipe_id)
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
