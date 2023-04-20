@@ -21,13 +21,8 @@ def get_recipes():
 
     return jsonify(json_data)
 
-<<<<<<< HEAD
 # Get all the details of a recipe a given post
 @brock.route('/recipeFromPost', methods=['GET'])
-=======
-# Get all the details of a given recipe
-@brock.route('/recipeSpecific', methods=['GET'])
->>>>>>> 7ccab5b96ede7efb831b31c64b4ea8ca805226d8
 def get_recipe():
     the_data = request.json
     current_app.logger.info(the_data)

@@ -591,5 +591,43 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "5a13f323-6048-47e5-ba88-c99da8f10577",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetByEquipment2",
+    "url": "localhost:8001/b/equipment",
+    "method": "GET",
+    "sortNum": 105000,
+    "created": "2023-04-20T19:28:52.691Z",
+    "modified": "2023-04-20T19:29:36.664Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"equipment_name\": \"kni\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d968a7e7-697d-4870-a0e9-725e9b1daebb",
+    "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
+    "containerId": "",
+    "name": "GetByIngredientName2",
+    "url": "localhost:8001/b/ingredientName",
+    "method": "GET",
+    "sortNum": 75000,
+    "created": "2023-04-20T19:29:50.247Z",
+    "modified": "2023-04-20T19:31:06.543Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"ingredient_name\":\"mustard\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
