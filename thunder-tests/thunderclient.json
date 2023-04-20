@@ -227,18 +227,19 @@
     "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
     "containerId": "",
     "name": "GetComments",
-    "url": "localhost:8001/j/comments",
+    "url": "localhost:8001/j/comments/{post_id}",
     "method": "GET",
     "sortNum": 170000,
     "created": "2023-04-19T21:23:21.502Z",
-    "modified": "2023-04-19T21:23:55.119Z",
+    "modified": "2023-04-20T23:00:14.789Z",
     "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"post_id\": \"1\"\n}",
-      "form": []
-    },
+    "params": [
+      {
+        "name": "post_id",
+        "value": "1",
+        "isPath": true
+      }
+    ],
     "tests": []
   },
   {
@@ -388,18 +389,19 @@
     "colId": "25fab5e0-4641-4708-a967-3f30c0d733ea",
     "containerId": "",
     "name": "GetSpecificRecipe",
-    "url": "localhost:8001/b/recipeFromPost",
+    "url": "localhost:8001/b/recipeFromPost/{postid}",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-20T18:58:49.903Z",
-    "modified": "2023-04-20T19:36:20.341Z",
+    "modified": "2023-04-20T23:01:33.369Z",
     "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"post_id_json\": \"1\"\n}",
-      "form": []
-    },
+    "params": [
+      {
+        "name": "postid",
+        "value": "1",
+        "isPath": true
+      }
+    ],
     "tests": []
   },
   {
