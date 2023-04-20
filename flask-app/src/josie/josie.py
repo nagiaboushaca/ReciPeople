@@ -81,9 +81,10 @@ def get_account():
 def delete_account():
     the_data = request.json
     current_app.logger.info(the_data)
-    username = the_data['username']
+    username = the_data['username_b']
+    pword = the_data['pword_a']
     cursor = db.get_db().cursor()
-    query = 'delete from Accounts where username="{}"'.format(username)
+    query = 'delete from Accounts where username="{}" and pword ="{}"'.format(username, pword)
     cursor.execute(query)
     cursor2 = db.get_db().cursor()
     query2 = 'select count(*) from Accounts where username="{}"'.format(username)
@@ -158,7 +159,7 @@ def get_account_bio():
 def update_account_bio():
     the_data = request.json
     current_app.logger.info(the_data)
-    username = the_data['username']
+    username = the_data['username_a']
     bio = the_data['bio']
     cursor = db.get_db().cursor()
     query = 'update Accounts set bio ="{}" where username="{}"'.format(bio, username)
@@ -180,7 +181,7 @@ def update_account_bio():
 def delete_accounts_bio():
     the_data = request.json
     current_app.logger.info(the_data)
-    username = the_data['username']
+    username = the_data['username_b']
     cursor = db.get_db().cursor()
     query = 'update Accounts set bio="" where username="{}"'.format(username)
     cursor.execute(query)
