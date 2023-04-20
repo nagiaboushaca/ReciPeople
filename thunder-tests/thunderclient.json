@@ -350,5 +350,100 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "fd177429-cd86-4760-839f-c0f4badd859f",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "RemoveLike",
+    "url": "localhost:8001/j/likes",
+    "method": "DELETE",
+    "sortNum": 190000,
+    "created": "2023-04-20T17:53:50.631Z",
+    "modified": "2023-04-20T17:54:51.109Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"post_id\": \"1\",\n  \"liker\": \"sena.szczepaniuk\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "29514c7a-8c4a-456b-b370-a3ddc90167f7",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "AddLike",
+    "url": "localhost:8001/j/likes",
+    "method": "POST",
+    "sortNum": 200000,
+    "created": "2023-04-20T17:55:03.814Z",
+    "modified": "2023-04-20T17:55:23.281Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"post_id\": \"1\",\n  \"liker\": \"sena.szczepaniuk\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7777e1b2-509d-49a4-9677-9c297e82887d",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "AddComment",
+    "url": "localhost:8001/j/comments",
+    "method": "POST",
+    "sortNum": 210000,
+    "created": "2023-04-20T17:56:06.512Z",
+    "modified": "2023-04-20T17:59:53.482Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"commenter\": \"sena.szczepaniuk\",\n  \"post_id\": \"2\",\n  \"content\": \"Nice post\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "847142cf-598f-4a06-ac37-8463a2a24f79",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "DeleteComment",
+    "url": "localhost:8001/j/comments",
+    "method": "DELETE",
+    "sortNum": 220000,
+    "created": "2023-04-20T18:01:49.340Z",
+    "modified": "2023-04-20T18:02:26.993Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"comment_id\": \"5\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "80f7b18f-d1ee-426f-9f22-4f72325e8de8",
+    "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
+    "containerId": "",
+    "name": "AddPost",
+    "url": "localhost:8001/j/posts",
+    "method": "POST",
+    "sortNum": 230000,
+    "created": "2023-04-20T18:29:43.353Z",
+    "modified": "2023-04-20T18:32:49.429Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"poster\": \"sena.szczepaniuk\",\n  \"caption\": \"Apple pie\",\n  \"recipe_name\": \"Apple pie\",\n  \"steps\": \"Put apples in pie crust, bake for 30 min\",\n  \"recipe_time\": \"45\",\n  \"skill_level_id\": \"1\",\n  \"serving_size\": \"2\",\n  \"calories\": \"50\",\n  \"cuisine_id\": \"2\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
