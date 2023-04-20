@@ -310,7 +310,7 @@ def get_comments():
     current_app.logger.info(the_data)
     postID = the_data['post_id']
     cursor = db.get_db().cursor()
-    query = 'select content, commenter from Comments where post_id={}'.format(postID)
+    query = 'select * from Comments where post_id={}'.format(postID)
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
     json_data = []
@@ -328,12 +328,11 @@ def add_comments():
     commenter = the_data['commenter']
     post_id = the_data['post_id']
     content = the_data['content']
-    comment_time = the_data['comment_time']
     cursor = db.get_db().cursor()
     query = '''
-    insert into Comments(commenter, post_id, content, comment_time)
-    values("{}", "{}", "{}", "{}")
-    '''.format(commenter, post_id, content, comment_time)
+    insert into Comments(commenter, post_id, content)
+    values("{}", "{}", "{}")
+    '''.format(commenter, post_id, content)
     
     cursor = db.get_db().cursor()
     cursor.execute(query)
@@ -357,14 +356,13 @@ def delete_comments():
     the_data = request.json
     current_app.logger.info(the_data)
     comment_id = the_data['comment_id']
-    post_id = the_data['post_id']
     cursor = db.get_db().cursor()
     query = '''
-    delete from Comments where comment_id={} and post_id={}
-    '''.format(comment_id, post_id)
+    delete from Comments where comment_id={}
+    '''.format(comment_id)
     cursor.execute(query)
     cursor2 = db.get_db().cursor()
-    query2 = 'select count(*) from Comments where comment_id={} and post_id={}'.format(comment_id, post_id)
+    query2 = 'select count(*) from Comments where comment_id={}'.format(comment_id)
     cursor2.execute(query2)
     db.get_db().commit()
     column_headers = [x[0] for x in cursor2.description]
@@ -384,12 +382,11 @@ def get_adjusted_recipe():
     serving_size = the_data['serving_size']
     cursor = db.get_db().cursor()
     query = '''
-    select r.recipe_id, r.recipe_name, r.steps, r.recipe_time, r.skill_level_id,
-    r.serving_size AS original_serving_size, r.calories, r.cuisine_id,
-    i.ingredient_name, i.amount * {} / r.serving_size AS adjusted_amount, i.unit
-    from Recipes r
-    join Ingredients i on r.recipe_id = i.recipe_id
-    where r.recipe_id = {}
+    SELECT i.ingredient_name, i.amount * {} / r.serving_size AS adjusted_amount, i.unit
+    FROM Recipes r
+    JOIN Ingredients i ON r.recipe_id = i.recipe_id
+    WHERE r.recipe_id = {}
+    GROUP BY i.ingredient_name, i.amount, i.unit
     '''.format(serving_size, recipe_id)
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
@@ -414,4 +411,45 @@ def get_posts():
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
 
+    return jsonify(json_data)
+
+# Add a post 
+@josie.route('/posts', methods=['POST'])
+def add_post():
+    the_data = request.json
+    current_app.logger.info(the_data)
+    poster = the_data['poster']
+    caption = the_data['caption']
+    cursor = db.get_db().cursor()
+    query = '''
+    insert into Posts (poster, caption)
+    values ("{}", "{}")
+    '''.format(poster, caption)
+    cursor.execute(query)
+
+    post_id = cursor.lastrowid
+    recipe_name = the_data['recipe_name']
+    steps = the_data['steps']
+    recipe_time = the_data['recipe_time']
+    skill_level_id = the_data['skill_level_id']
+    serving_size = the_data['serving_size']
+    calories = the_data['calories']
+    cuisine_id = the_data['cuisine_id']
+    query2 = '''
+    insert into Recipes
+    values ({}, "{}", "{}", {}, {}, {}, {}, {})
+    '''.format(post_id, recipe_name, steps, recipe_time,
+               skill_level_id, serving_size, calories, cuisine_id)
+    cursor2 = db.get_db().cursor()
+    cursor2.execute(query2)
+
+    query3 = 'select * from Posts where post_id={}'.format(post_id)
+    cursor3 = db.get_db().cursor()
+    cursor3.execute(query3)
+    db.get_db().commit()
+    column_headers = [x[0] for x in cursor3.description]
+    json_data = []
+    theData = cursor3.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
     return jsonify(json_data)
