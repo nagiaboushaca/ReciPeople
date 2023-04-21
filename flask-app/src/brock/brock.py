@@ -56,11 +56,11 @@ def get_recipe_by_name():
     return jsonify(json_data)
 
 # Get all saved reciped by a user
-@brock.route('/saved_recipes', methods=['GET'])
-def get_saved_recipes():
-    the_data = request.json
-    current_app.logger.info(the_data)
-    username = the_data['username']
+@brock.route('/saved_recipes/<username>', methods=['GET'])
+def get_saved_recipes(username):
+    # the_data = request.json
+    # current_app.logger.info(the_data)
+    # username = the_data['username']
     cursor = db.get_db().cursor()
     query = '''
     SELECT Recipes.recipe_name, Recipes.steps, Recipes.recipe_time, Recipes.skill_level_id, Recipes.serving_size, Recipes.calories, Cuisines.cuisine_name 
@@ -80,14 +80,14 @@ def get_saved_recipes():
     return jsonify(json_data)
 
 # Add a recipe to a user's saved recipes
-@brock.route('/saved_recipes', methods=['POST'])
-def add_saved_recipe():
-    the_data = request.json
-    current_app.logger.info(the_data)
-    username = the_data['username']
-    recipe_id = the_data['recipe_id']
+@brock.route('/saved_recipes/<username>/<recipeid>', methods=['POST'])
+def add_saved_recipe(username, recipeid):
+    # the_data = request.json
+    # current_app.logger.info(the_data)
+    # username = the_data['username']
+    # recipe_id = the_data['recipe_id']
     cursor = db.get_db().cursor()
-    query = 'insert into Saved_recipes(username, saved_recipe_id) values("{}", {})'.format(username, recipe_id)
+    query = 'insert into Saved_recipes(username, saved_recipe_id) values("{}", {})'.format(username, recipeid)
     cursor.execute(query)
     cursor2 = db.get_db().cursor()
     query2 = 'select * from Saved_recipes where username="{}"'.format(username)
@@ -102,17 +102,17 @@ def add_saved_recipe():
     return jsonify(json_data)
 
 # Delete a recipe from a user's saved recipes
-@brock.route('/saved_recipes', methods=['DELETE'])
-def delete_saved_recipe():
-    the_data = request.json
-    current_app.logger.info(the_data)
-    username = the_data['username']
-    recipe_id = the_data['recipe_id']
+@brock.route('/saved_recipes/<username>/<recipeid>', methods=['DELETE'])
+def delete_saved_recipe(username, recipeid):
+    # the_data = request.json
+    # current_app.logger.info(the_data)
+    # username = the_data['username']
+    # recipe_id = the_data['recipe_id']
     cursor = db.get_db().cursor()
-    query = 'delete from Saved_recipes where username="{}" and saved_recipe_id={}'.format(username, recipe_id)
+    query = 'delete from Saved_recipes where username="{}" and saved_recipe_id={}'.format(username, recipeid)
     cursor.execute(query)
     cursor2 = db.get_db().cursor()
-    query2 = 'select count(*) from Saved_recipes where username="{}" and saved_recipe_id={}'.format(username, recipe_id)
+    query2 = 'select count(*) from Saved_recipes where username="{}" and saved_recipe_id={}'.format(username, recipeid)
     cursor2.execute(query2)
     db.get_db().commit()
     column_headers = [x[0] for x in cursor2.description]
@@ -211,13 +211,13 @@ def get_recipes_by_equipment():
     return jsonify(json_data)
 
 # Get the cuisine name from the cuisine ID 
-@brock.route('/cuisineName', methods=['GET'])
-def get_cuisine_name():
-    the_data = request.json
-    current_app.logger.info(the_data)
-    cuisine_id = the_data['cuisine_id']
+@brock.route('/cuisineName/<cuisineid>', methods=['GET'])
+def get_cuisine_name(cuisineid):
+    # the_data = request.json
+    # current_app.logger.info(the_data)
+    # cuisine_id = the_data['cuisine_id']
     cursor = db.get_db().cursor()
-    query = 'select cuisine_name from Cuisines where cuisine_id={}'.format(cuisine_id)
+    query = 'select cuisine_name from Cuisines where cuisine_id={}'.format(cuisineid)
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
     json_data = []
