@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS Cuisines (
 
 CREATE TABLE IF NOT EXISTS Recipes (
     recipe_id int PRIMARY KEY,
-    recipe_name varchar(30),
+    recipe_name varchar(80),
     steps varchar(16000),
     recipe_time int NOT NULL,
     skill_level_id int NOT NULL,
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS Ingredient_Category (
 );
 
 CREATE TABLE IF NOT EXISTS Ingredients (
-    ingredient_name varchar(50) UNIQUE NOT NULL,
+    ingredient_name varchar(50) NOT NULL,
     recipe_id int NOT NULL,
     category_id int NOT NULL,
     amount double,
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS Saved_recipes (
 
 );
 
--- Add sample data. 
+-- Add sample data.
 
 INSERT INTO Accounts
 VALUES ('nagiaboushaca', 'secretpassword',
@@ -159,41 +159,41 @@ VALUES ('sena.szczepaniuk', 'sean',
         'Sena', 'Szczepaniuk', 'I love to code! And make ER diagrams!!',
         'senaszczepaniuk@gmail.com','9178882222' );
 INSERT INTO Accounts (username, pword, first_name, last_name, bio, email_address, phone_number)
-VALUES 
-('jdoe', 'P@ssw0rd', 'John', 'Doe', 'Software engineer, coffee lover, and avid runner.', 'jdoe@email.com', '5555551234'),
-('msmith', 'S3cur3Pwd', 'Megan', 'Smith', 'Marketing professional, amateur chef, and dog enthusiast.', 'msmith@email.com', '5555555678'),
-('jlee', 'Pa$$word1', 'Jennifer', 'Lee', 'Designer, bookworm, and coffee snob.', 'jlee@email.com', '5555559012'),
-('khan', 'P@ss123', 'Kamal', 'Hassan', 'Actor, writer, and film director. Dedicated to promoting education and social justice.', 'khan@email.com', '5555553456'),
-('rwilliams', 'W1lliam5', 'Rachel', 'Williams', 'Journalist, adventurer, and environmentalist.', 'rwilliams@email.com', '5555557890'),
-('tjohnson', 'Passw0rd!', 'Tyler', 'Johnson', 'Aspiring musician, passionate about travel and learning new languages.', 'tjohnson@email.com', '5555552345'),
-('jrobinson', 'Robinson123', 'Jessica', 'Robinson', 'Social worker, community organizer, and advocate for social justice.', 'jrobinson@email.com', '5555556789'),
-('klee', 'Klee1234', 'Kevin', 'Lee', 'Investor, entrepreneur, and technology enthusiast.', 'klee@email.com', '5555550123'),
-('mgarcia', 'Garcia123', 'Maria', 'Garcia', 'Artist, activist, and environmentalist.', 'mgarcia@email.com', '5555554567'),
-('jthomas', 'Thomas456', 'James', 'Thomas', 'Engineer, innovator, and technology evangelist.', 'jthomas@email.com', '5555558901'),
-('ahernandez', 'Hernandez1', 'Ana', 'Hernandez', 'Educator, researcher, and advocate for immigrant rights.', 'ahernandez@email.com', '5555552345'),
+VALUES
+('jdoe', 'P@ssw0rd', 'John', 'Doe', 'Software engineer, coffee lover, and avid runner.', 'jdoe@email.com', '4555551234'),
+('msmith', 'S3cur3Pwd', 'Megan', 'Smith', 'Marketing professional, amateur chef, and dog enthusiast.', 'msmith@email.com', '5935555678'),
+('jlee', 'Pa$$word1', 'Jennifer', 'Lee', 'Designer, bookworm, and coffee snob.', 'jlee@email.com', '5551559012'),
+('khan', 'P@ss123', 'Kamal', 'Hassan', 'Actor, writer, and film director. Dedicated to promoting education and social justice.', 'khan@email.com', '8885553456'),
+('rwilliams', 'W1lliam5', 'Rachel', 'Williams', 'Journalist, adventurer, and environmentalist.', 'rwilliams@email.com', '8395557890'),
+('tjohnson', 'Passw0rd!', 'Tyler', 'Johnson', 'Aspiring musician, passionate about travel and learning new languages.', 'tjohnson@email.com', '2125552345'),
+('jrobinson', 'Robinson123', 'Jessica', 'Robinson', 'Social worker, community organizer, and advocate for social justice.', 'jrobinson@email.com', '5505956789'),
+('klee', 'Klee1234', 'Kevin', 'Lee', 'Investor, entrepreneur, and technology enthusiast.', 'klee@email.com', '5115550123'),
+('mgarcia', 'Garcia123', 'Maria', 'Garcia', 'Artist, activist, and environmentalist.', 'mgarcia@email.com', '5250554567'),
+('jthomas', 'Thomas456', 'James', 'Thomas', 'Engineer, innovator, and technology evangelist.', 'jthomas@email.com', '2355558901'),
+('ahernandez', 'Hernandez1', 'Ana', 'Hernandez', 'Educator, researcher, and advocate for immigrant rights.', 'ahernandez@email.com', '5551552945'),
 ('bchen', 'Chen1234', 'Brian', 'Chen', 'Investor, entrepreneur, and technology enthusiast.', 'bchen@email.com', '5555556789'),
 ('jwang', 'Wang1234', 'Jennifer', 'Wang', 'Designer, artist, and photographer. Passionate about creating beautiful and functional products.', 'jwang@email.com', '5555550123'),
-('rpatel', 'Patel123', 'Raj', 'Patel', 'Doctor, humanitarian, and advocate for public health.', 'rpatel@email.com', '5555554567'),
-('slee', 'Lee12345', 'Samantha', 'Lee', 'Software engineer, gamer, and anime enthusiast.', 'slee@email.com', '5555558901'),
-('jrivera', 'Rivera123', 'Juan', 'Rivera', 'Lawyer, activist, and advocate for civil rights.', 'jrivera@email.com', '5555552345'),
+('rpatel', 'Patel123', 'Raj', 'Patel', 'Doctor, humanitarian, and advocate for public health.', 'rpatel@email.com', '5830554567'),
+('slee', 'Lee12345', 'Samantha', 'Lee', 'Software engineer, gamer, and anime enthusiast.', 'slee@email.com', '5558558901'),
+('jrivera', 'Rivera123', 'Juan', 'Rivera', 'Lawyer, activist, and advocate for civil rights.', 'jrivera@email.com', '1555552345'),
 ('klam', 'Lam12345', 'Karen', 'Lam', 'Marketing professional, fashionista, and foodie.', 'klam@email.com', '4567358934'),
 ('mjones', 'Jones123', 'Michael', 'Jones', 'Entrepreneur, investor, and fitness enthusiast.', 'mjones@email.com', '5555551234'),
-('ssmith', 'Smith456', 'Sarah', 'Smith', 'UX designer, coffee addict, and travel enthusiast.', 'ssmith@email.com', '5555555678'),
+('ssmith', 'Smith456', 'Sarah', 'Smith', 'UX designer, coffee addict, and travel enthusiast.', 'ssmith@email.com', '6555515678'),
 ('dlee', 'Lee456', 'David', 'Lee', 'Product manager, avid cyclist, and music lover.', 'dlee@email.com', '5555559012'),
-('mturner', 'Turner123', 'Megan', 'Turner', 'Writer, storyteller, and lover of all things sci-fi and fantasy.', 'mturner@email.com', '5555553456'),
-('jmorris', 'Morris123', 'Jessica', 'Morris', 'Social media manager, food blogger, and cat lover.', 'jmorris@email.com', '5555557890'),
-('kjohnson', 'Johnson123', 'Katherine', 'Johnson', 'Researcher, data scientist, and advocate for women in tech.', 'kjohnson@email.com', '5555552345'),
-('bthomas', 'Thomas123', 'Benjamin', 'Thomas', 'Software developer, gamer, and board game enthusiast.', 'bthomas@email.com', '5555556789'),
-('jjackson', 'Jackson456', 'Julia', 'Jackson', 'Writer, editor, and lover of all things books and literature.', 'jjackson@email.com', '5555550123'),
-('arobinson', 'Robinson456', 'Alex', 'Robinson', 'Graphic designer, artist, and traveler.', 'arobinson@email.com', '5555554567'),
-('hhernandez', 'Hernandez123', 'Hector', 'Hernandez', 'Chef, food critic, and lover of all things culinary.', 'hhernandez@email.com', '5555558901'),
-('ssanchez', 'Sanchez456', 'Sofia', 'Sanchez', 'Marketing professional, fashion enthusiast, and blogger.', 'ssanchez@email.com', '5555552345'),
-('tnguyen', 'Nguyen123', 'Trang', 'Nguyen', 'Product manager, traveler, and lover of all things outdoors.', 'tnguyen@email.com', '5555556789'),
-('swhite', 'White123', 'Stephanie', 'White', 'Engineer, innovator, and technology enthusiast.', 'swhite@email.com', '5555550123'),
+('mturner', 'Turner123', 'Megan', 'Turner', 'Writer, storyteller, and lover of all things sci-fi and fantasy.', 'mturner@email.com', '5545553456'),
+('jmorris', 'Morris123', 'Jessica', 'Morris', 'Social media manager, food blogger, and cat lover.', 'jmorris@email.com', '5509557890'),
+('kjohnson', 'Johnson123', 'Katherine', 'Johnson', 'Researcher, data scientist, and advocate for women in tech.', 'kjohnson@email.com', '5255552345'),
+('bthomas', 'Thomas123', 'Benjamin', 'Thomas', 'Software developer, gamer, and board game enthusiast.', 'bthomas@email.com', '5555056789'),
+('jjackson', 'Jackson456', 'Julia', 'Jackson', 'Writer, editor, and lover of all things books and literature.', 'jjackson@email.com', '5885950123'),
+('arobinson', 'Robinson456', 'Alex', 'Robinson', 'Graphic designer, artist, and traveler.', 'arobinson@email.com', '5955554567'),
+('hhernandez', 'Hernandez123', 'Hector', 'Hernandez', 'Chef, food critic, and lover of all things culinary.', 'hhernandez@email.com', '5505558901'),
+('ssanchez', 'Sanchez456', 'Sofia', 'Sanchez', 'Marketing professional, fashion enthusiast, and blogger.', 'ssanchez@email.com', '5595552345'),
+('tnguyen', 'Nguyen123', 'Trang', 'Nguyen', 'Product manager, traveler, and lover of all things outdoors.', 'tnguyen@email.com', '5545556789'),
+('swhite', 'White123', 'Stephanie', 'White', 'Engineer, innovator, and technology enthusiast.', 'swhite@email.com', '5585550123'),
 ('mjackson', 'Jackson123', 'Marcus', 'Jackson', 'Entrepreneur, investor, and fitness enthusiast.', 'mjackson@email.com', '5555554567'),
 ('bdavis', 'Davis456', 'Bethany', 'Davis', 'Researcher, data scientist, and advocate for women in tech.', 'bdavis@email.com', '5555558901'),
 ('jlai', 'Lai123', 'Jennifer', 'Lai', 'Designer, artist, and photographer. Passionate about creating beautiful and functional products.', 'jlai@email.com', '5555552345'),
-('skim', 'Kim123', 'Samantha', 'Kim', 'Lawyer, activist, and advocate for civil rights.', 'skim@email.com', '5555556789'),
+('skim', 'Kim123', 'Samantha', 'Kim', 'Lawyer, activist, and advocate for civil rights.', 'skim@email.com', '5505586789'),
 ('jkim', 'Kim456', 'Jonathan', 'Kim', 'Doctor, humanitarian, and advocate for public health.', 'jkim@email.com', '3457890126');
 
 -- nagiaboushaca : 0 followers, 2 following
@@ -306,7 +306,7 @@ VALUES ('bthomas',
         ('tjohnson',
         'weeeee',
         CURRENT_TIMESTAMP),
-        ('jjakcson',
+        ('jjackson',
         'my mother is mexican and she loved making this when i was little',
         CURRENT_TIMESTAMP),
         ('kjohnson',
@@ -329,9 +329,18 @@ VALUES ('bthomas',
         CURRENT_TIMESTAMP),
         ('jwang',
         'SOOOO GOOD!!!!',
+        CURRENT_TIMESTAMP),
+        ('jwang',
+        'SOOOO mf GOOD!!!!',
+        CURRENT_TIMESTAMP),
+        ('mgarcia',
+        'yummylicious',
+        CURRENT_TIMESTAMP),
+        ('jdoe',
+        'broooo on god u pmo',
         CURRENT_TIMESTAMP);
-        
-        
+
+
 
 INSERT INTO Tags (post_id, tag_name)
 VALUES (1, '#cheesy');
@@ -472,45 +481,45 @@ Values (4, 'Creamy Mushroom Risotto',
          2);
 
 INSERT INTO Recipes
-Values (5, 'Spicy Thai Green Curry',
+Values (6, 'Spicy Thai Green Curry',
         '1. In a large pot, heat the olive oil over medium heat. Add the onion and cook until softened, about 5 minutes. Add the mushrooms and cook until browned, about 10 minutes.
          2. Add the rice and cook for 1-2 minutes, stirring constantly. Add the wine and cook until the liquid is absorbed, stirring constantly.
          3. Add the broth, 1/2 cup at a time, stirring constantly and waiting until each addition is absorbed before adding more.
          4. Stir in the parmesan cheese, butter, and parsley. Season with salt and pepper to taste.',
-         40, 
-         3, 
-         4, 
-         500, 
+         40,
+         3,
+         4,
+         500,
          2);
 
 INSERT INTO Recipes
-Values (5, 'Classic Beef Stroganoff',
+Values (7, 'Classic Beef Stroganoff',
         '1. In a large skillet, heat the butter over medium heat. Add the onions and cook until softened, about 5 minutes. Add the mushrooms and cook until browned, about 10 minutes.
          2. Add the beef and cook until browned on all sides, about 5 minutes.
          3. Stir in the flour and cook for 1 minute. Add the beef broth, mustard, and Worcestershire sauce. Bring to a boil, then reduce heat and simmer for 15-20 minutes.
          4. Stir in the sour cream and heat through, but do not boil.
-         5. Serve with noodles or rice.', 
-         45, 
-         3, 
-         4, 
-         700, 
+         5. Serve with noodles or rice.',
+         45,
+         3,
+         4,
+         700,
          1);
 
 INSERT INTO Recipes
-Values (6, 'Crispy Baked Chicken Tenders',
+Values (8, 'Crispy Baked Chicken Tenders',
          '1. Preheat oven to 400°F. Line a baking sheet with parchment paper.
           2. Combine the breadcrumbs, parmesan cheese, garlic powder, salt, and pepper in a shallow dish.
           3. Place the beaten eggs in another shallow dish.
           4. Dip each chicken tender in the egg mixture, then coat in the breadcrumb mixture. Place on the prepared baking sheet.
-          5. Bake for 15-20 minutes, or until golden brown and crispy.', 
-          25, 
-          2, 
-          4, 
-          400, 
+          5. Bake for 15-20 minutes, or until golden brown and crispy.',
+          25,
+          2,
+          4,
+          400,
           8);
 
 INSERT INTO Recipes
-Values (7, 'Roasted Vegetable Quinoa Bowl',
+Values (9, 'Roasted Vegetable Quinoa Bowl',
          '1. Preheat oven to 425°F. Line a baking sheet with parchment paper.
           2. Toss the vegetables with olive oil and season with salt and pepper. Place on the prepared baking sheet.
           3. Roast for 20-25 minutes, or until tender and golden brown.
@@ -522,79 +531,79 @@ Values (7, 'Roasted Vegetable Quinoa Bowl',
           6);
 
 INSERT INTO Recipes
-Values (8, 'Thai Basil Chicken Stir-Fry',
-         '1. Heat oil in a wok. Add chicken and stir-fry until browned. 
-          2. Add garlic, chili, and onion. Cook for 1-2 minutes. 
-          3. Add peppers and stir-fry for another minute. 
-          4. Add basil, fish sauce, and sugar. 
-          5. Serve with rice.', 
-          20, 
-          3, 
-          2, 
-          450, 
+Values (10, 'Thai Basil Chicken Stir-Fry',
+         '1. Heat oil in a wok. Add chicken and stir-fry until browned.
+          2. Add garlic, chili, and onion. Cook for 1-2 minutes.
+          3. Add peppers and stir-fry for another minute.
+          4. Add basil, fish sauce, and sugar.
+          5. Serve with rice.',
+          20,
+          3,
+          2,
+          450,
           6);
 
 INSERT INTO Recipes
-Values (9, 'Baked Honey Mustard Salmon', 
-        '1. Preheat oven to 400°F. 
-        2. In a small bowl, mix mustard, honey, and garlic. 
-        3. Place salmon on a baking sheet lined with parchment paper. 
-        4. Brush salmon with the mustard mixture. 
-        5. Bake for 12-15 minutes, or until cooked through.', 
+Values (11, 'Baked Honey Mustard Salmon',
+        '1. Preheat oven to 400°F.
+        2. In a small bowl, mix mustard, honey, and garlic.
+        3. Place salmon on a baking sheet lined with parchment paper.
+        4. Brush salmon with the mustard mixture.
+        5. Bake for 12-15 minutes, or until cooked through.',
         20,
-        2, 
-        4, 
-        350, 
+        2,
+        4,
+        350,
         9);
 
 INSERT INTO Recipes
-Values (10, 'Mushroom and Spinach Quiche', 
-        '1. Preheat oven to 375°F. 
-         2. Roll out pie crust and place in a 9-inch pie dish. 
-         3. In a skillet, cook mushrooms until tender. Add spinach and cook until wilted. 
-         4. In a bowl, whisk eggs, milk, salt, and pepper. 
-         5. Pour egg mixture into the pie crust. Top with mushroom and spinach mixture. 
-         6. Bake for 30-35 minutes, or until set.', 
-         40, 
-         3, 
-         6, 
-         400, 
+Values (12, 'Mushroom and Spinach Quiche',
+        '1. Preheat oven to 375°F.
+         2. Roll out pie crust and place in a 9-inch pie dish.
+         3. In a skillet, cook mushrooms until tender. Add spinach and cook until wilted.
+         4. In a bowl, whisk eggs, milk, salt, and pepper.
+         5. Pour egg mixture into the pie crust. Top with mushroom and spinach mixture.
+         6. Bake for 30-35 minutes, or until set.',
+         40,
+         3,
+         6,
+         400,
          3);
 
 INSERT INTO Recipes
-Values (11, 'Slow Cooker Beef Stew',
-         '1. In a slow cooker, combine beef, potatoes, carrots, onions, and garlic. 
-          2. In a separate bowl, whisk together beef broth, tomato paste, Worcestershire sauce, thyme, and bay leaves. Pour over beef and vegetables. 
-          3. Cover and cook on low for 6-8 hours. 
-          4. Stir in frozen peas and cook for an additional 10-15 minutes. 
-          5. Serve with bread.', 
-          480, 
-          4, 
-          6, 
-          500, 
+Values (13, 'Slow Cooker Beef Stew',
+         '1. In a slow cooker, combine beef, potatoes, carrots, onions, and garlic.
+          2. In a separate bowl, whisk together beef broth, tomato paste, Worcestershire sauce, thyme, and bay leaves. Pour over beef and vegetables.
+          3. Cover and cook on low for 6-8 hours.
+          4. Stir in frozen peas and cook for an additional 10-15 minutes.
+          5. Serve with bread.',
+          480,
+          4,
+          6,
+          500,
           1);
 
 INSERT INTO Recipes
-Values (12, 'Caprese Salad with Balsamic Glaze', 
-        '1. In a small saucepan, bring balsamic vinegar to a boil. Reduce heat and simmer until reduced and thickened. 
-         2. Layer sliced tomatoes and mozzarella on a plate. 
-         3. Drizzle with olive oil and sprinkle with salt and pepper. 
-         4. Drizzle with balsamic glaze. 
-         5. Garnish with fresh basil leaves.', 
-         10, 
-         1, 
-         2, 
-         250, 
+Values (14, 'Caprese Salad with Balsamic Glaze',
+        '1. In a small saucepan, bring balsamic vinegar to a boil. Reduce heat and simmer until reduced and thickened.
+         2. Layer sliced tomatoes and mozzarella on a plate.
+         3. Drizzle with olive oil and sprinkle with salt and pepper.
+         4. Drizzle with balsamic glaze.
+         5. Garnish with fresh basil leaves.',
+         10,
+         1,
+         2,
+         250,
          2);
 
 INSERT INTO Recipes
-Values (13, 'Beef and Broccoli Stir-Fry',
-         '1. Marinate sliced beef in soy sauce and cornstarch for 15 minutes. 
-          2. In a wok, heat oil and stir-fry beef until browned. 
-          3. Add garlic and ginger and cook for 1-2 minutes. 
-          4. Add broccoli and stir-fry for another 2-3 minutes. 
-          5. Add oyster sauce and water. Cook until the sauce thickens. 
-          6. Serve with rice.', 
+Values (15, 'Beef and Broccoli Stir-Fry',
+         '1. Marinate sliced beef in soy sauce and cornstarch for 15 minutes.
+          2. In a wok, heat oil and stir-fry beef until browned.
+          3. Add garlic and ginger and cook for 1-2 minutes.
+          4. Add broccoli and stir-fry for another 2-3 minutes.
+          5. Add oyster sauce and water. Cook until the sauce thickens.
+          6. Serve with rice.',
           25,
           2,
           3,
@@ -602,16 +611,16 @@ Values (13, 'Beef and Broccoli Stir-Fry',
           2);
 
 INSERT INTO Recipes
-Values (14, 'Greek Salad',
+Values (16, 'Greek Salad',
          'Mix tomatoes, cucumber, red onion, olives, and feta cheese. Drizzle with olive oil and lemon juice.',
           15,
            1,
            2,
-         200, 
+         200,
            1);
 
 INSERT INTO Recipes
-Values (15, 'Beef Tacos',
+Values (17, 'Beef Tacos',
          'Cook ground beef with taco seasoning. Serve in taco shells with lettuce, tomato, cheese, and sour cream.',
           25,
            2,
@@ -620,7 +629,7 @@ Values (15, 'Beef Tacos',
            2);
 
 INSERT INTO Recipes
-Values (16, 'Butternut Squash Soup',
+Values (18, 'Butternut Squash Soup',
          'Roast butternut squash, onion, and garlic. Blend with vegetable broth, cream, and spices. Heat and serve.',
           40,
            3,
@@ -629,7 +638,7 @@ Values (16, 'Butternut Squash Soup',
            3);
 
 INSERT INTO Recipes
-Values (17, 'Grilled Pork Chops',
+Values (19, 'Grilled Pork Chops',
          'Season pork chops with salt and pepper. Grill until cooked. Serve with grilled vegetables.',
           30,
            2,
@@ -638,7 +647,7 @@ Values (17, 'Grilled Pork Chops',
            5);
 
 INSERT INTO Recipes
-Values (18, 'Chicken Alfredo', 
+Values (20, 'Chicken Alfredo',
         'Cook chicken in a pan with garlic and butter. Add heavy cream and parmesan cheese. Toss with cooked pasta.',
          35,
           3,
@@ -647,7 +656,7 @@ Values (18, 'Chicken Alfredo',
           6);
 
 INSERT INTO Recipes
-Values (19, 'Falafel Wrap',
+Values (21, 'Falafel Wrap',
          'Mix chickpeas, onion, garlic, and spices in a food processor. Form into patties and fry. Serve in a wrap with hummus and veggies.',
           50,
            4,
@@ -656,7 +665,7 @@ Values (19, 'Falafel Wrap',
           7);
 
 INSERT INTO Recipes
-Values (20, 'Shrimp Scampi',
+Values (22, 'Shrimp Scampi',
          'Cook shrimp in a pan with garlic and butter. Toss with cooked pasta, lemon juice, and parmesan cheese.',
           25,
            3,
@@ -665,25 +674,25 @@ Values (20, 'Shrimp Scampi',
           8);
 
 INSERT INTO Recipes
-Values (21, 'Spinach and Feta Stuffed Chicken', 
-        'Pound chicken breasts thin. Stuff with spinach and feta cheese. Bake until cooked.', 
-        40, 
-        4, 
-        2, 
-        400, 
+Values (23, 'Spinach and Feta Stuffed Chicken',
+        'Pound chicken breasts thin. Stuff with spinach and feta cheese. Bake until cooked.',
+        40,
+        4,
+        2,
+        400,
         9);
 
 INSERT INTO Recipes
-Values (22, 'Sushi Rolls', 
-        'Lay out nori sheets. Add sushi rice, avocado, cucumber, and crab meat. Roll tightly and cut into pieces.', 
-        60, 
-        5, 
-        4, 
-        300, 
+Values (24, 'Sushi Rolls',
+        'Lay out nori sheets. Add sushi rice, avocado, cucumber, and crab meat. Roll tightly and cut into pieces.',
+        60,
+        5,
+        4,
+        300,
         10);
 
 INSERT INTO Recipes
-Values (23, 'Vegetable Stir-Fry',
+Values (25, 'Vegetable Stir-Fry',
          'Cook vegetables in a wok with soy sauce and ginger. Serve with rice or noodles.',
           20,
            2,
@@ -692,41 +701,41 @@ Values (23, 'Vegetable Stir-Fry',
           1);
 
 INSERT INTO Recipes
-Values (24, 'Tuna Salad', 
-        'Mix canned tuna, celery, red onion, and mayo. Serve over lettuce or in a sandwich.', 
-         10, 
-         1, 
-         2, 
-         200, 
+Values (26, 'Tuna Salad',
+        'Mix canned tuna, celery, red onion, and mayo. Serve over lettuce or in a sandwich.',
+         10,
+         1,
+         2,
+         200,
          2);
 
 INSERT INTO Recipes
-Values (25, 'Lentil Soup', 
-        'Cook lentils, carrots, and celery in a pot with vegetable broth and spices. Serve hot.', 
-         30, 
-         2, 
-         4, 
-         300, 
+Values (27, 'Lentil Soup',
+        'Cook lentils, carrots, and celery in a pot with vegetable broth and spices. Serve hot.',
+         30,
+         2,
+         4,
+         300,
          3);
 
 INSERT INTO Recipes
-Values (26, 'Beef Stew', 
-        'Brown beef in a pot with onions and garlic. Add potatoes, carrots, and beef broth. Simmer until cooked.', 
-        60, 
-        4, 
-        4, 
-        500, 
+Values (28, 'Beef Stew',
+        'Brown beef in a pot with onions and garlic. Add potatoes, carrots, and beef broth. Simmer until cooked.',
+        60,
+        4,
+        4,
+        500,
         4);
 
 INSERT INTO Recipes
-Values (27, 'Chicken Fajitas',
-         '1. In a large skillet, heat olive oil over medium-high heat. 
-          2. Add chicken and cook until browned and cooked through. 
-          3. Remove chicken from skillet and set aside. 
-          4. Add bell peppers and onion to the skillet and cook until softened. 
-          5. Add garlic and cook for 1 minute. 
-          6. Add chicken back to skillet with cumin, chili powder, and salt. 
-          7. Stir to combine. 
+Values (29, 'Chicken Fajitas',
+         '1. In a large skillet, heat olive oil over medium-high heat.
+          2. Add chicken and cook until browned and cooked through.
+          3. Remove chicken from skillet and set aside.
+          4. Add bell peppers and onion to the skillet and cook until softened.
+          5. Add garlic and cook for 1 minute.
+          6. Add chicken back to skillet with cumin, chili powder, and salt.
+          7. Stir to combine.
           8. Serve hot with tortillas, salsa, and sour cream.',
            25,
             3,
@@ -735,28 +744,28 @@ Values (27, 'Chicken Fajitas',
            6);
 
 INSERT INTO Recipes
-Values (28, 'Vegetable Fried Rice',
-         '1. In a large skillet or wok, heat sesame oil over medium-high heat. 
-          2. Add onion, garlic, and ginger and stir-fry for 2-3 minutes. 
-          3. Add carrots and peas and stir-fry for 1-2 minutes. 
-          4. Add cooked rice to the skillet and stir-fry for 2-3 minutes. 
-          5. Push the rice to the side of the skillet and add the beaten eggs to the empty space. 
-          6. Scramble the eggs and then stir them into the rice mixture. 
-          7. Add soy sauce and stir to combine. 8. Serve hot.', 
-          25, 
-          2, 
-          4, 
-          300, 
+Values (30, 'Vegetable Fried Rice',
+         '1. In a large skillet or wok, heat sesame oil over medium-high heat.
+          2. Add onion, garlic, and ginger and stir-fry for 2-3 minutes.
+          3. Add carrots and peas and stir-fry for 1-2 minutes.
+          4. Add cooked rice to the skillet and stir-fry for 2-3 minutes.
+          5. Push the rice to the side of the skillet and add the beaten eggs to the empty space.
+          6. Scramble the eggs and then stir them into the rice mixture.
+          7. Add soy sauce and stir to combine. 8. Serve hot.',
+          25,
+          2,
+          4,
+          300,
           8);
 
 INSERT INTO Recipes
-Values (29, 'Pesto Pasta',
-         '1. Cook pasta according to package instructions. 
-          2. Meanwhile, in a food processor, combine basil, garlic, pine nuts, and Parmesan cheese. 
-          3. Pulse until finely chopped. 
-          4. With the food processor running, slowly pour in olive oil until the mixture is smooth. 
-          5. Drain pasta and return it to the pot. 
-          6. Add pesto sauce and stir to combine. 
+Values (31, 'Pesto Pasta',
+         '1. Cook pasta according to package instructions.
+          2. Meanwhile, in a food processor, combine basil, garlic, pine nuts, and Parmesan cheese.
+          3. Pulse until finely chopped.
+          4. With the food processor running, slowly pour in olive oil until the mixture is smooth.
+          5. Drain pasta and return it to the pot.
+          6. Add pesto sauce and stir to combine.
           7. Serve hot with additional Parmesan cheese, if desired.',
            20,
             2,
@@ -765,62 +774,62 @@ Values (29, 'Pesto Pasta',
            2);
 
 INSERT INTO Recipes
-Values (30, 'Mediterranean Stuffed Peppers',
-         '1. Preheat the oven to 375°F. 
-          2. Cut the tops off of the bell peppers and remove the seeds and membranes. 
-          3. In a large skillet, heat the olive oil over medium-high heat. 
-          4. Add the onion, garlic, and tomato and cook until softened. 
-          5. Add the ground turkey and cook until browned. 
-          6. Stir in the cooked rice, spinach, and feta cheese. 
-          7. Spoon the mixture into the bell peppers. 
-          8. Place the stuffed peppers in a baking dish and bake for 25-30 minutes.', 
-          45, 
-           3, 
-           4, 
-         300, 
+Values (32, 'Mediterranean Stuffed Peppers',
+         '1. Preheat the oven to 375°F.
+          2. Cut the tops off of the bell peppers and remove the seeds and membranes.
+          3. In a large skillet, heat the olive oil over medium-high heat.
+          4. Add the onion, garlic, and tomato and cook until softened.
+          5. Add the ground turkey and cook until browned.
+          6. Stir in the cooked rice, spinach, and feta cheese.
+          7. Spoon the mixture into the bell peppers.
+          8. Place the stuffed peppers in a baking dish and bake for 25-30 minutes.',
+          45,
+           3,
+           4,
+         300,
            8);
 
 INSERT INTO Recipes
-Values (31, 'Pulled Pork Sandwiches',
-         '1. Preheat the oven to 325°F. 
-          2. Rub the pork shoulder with the dry rub seasoning. 
-          3. Place the pork shoulder in a large baking dish and cover with foil. 
-          4. Bake for 3-4 hours, or until the pork is tender and pulls apart easily with a fork. 
-          5. Remove the pork from the baking dish and shred with two forks. 
-          6. In a large skillet, heat the barbecue sauce over medium-high heat. 
-          7. Add the shredded pork to the skillet and stir to coat with the sauce. 
-          8. Serve hot on hamburger buns.', 
-          240, 
-          3, 
-          6, 
-          600, 
+Values (33, 'Pulled Pork Sandwiches',
+         '1. Preheat the oven to 325°F.
+          2. Rub the pork shoulder with the dry rub seasoning.
+          3. Place the pork shoulder in a large baking dish and cover with foil.
+          4. Bake for 3-4 hours, or until the pork is tender and pulls apart easily with a fork.
+          5. Remove the pork from the baking dish and shred with two forks.
+          6. In a large skillet, heat the barbecue sauce over medium-high heat.
+          7. Add the shredded pork to the skillet and stir to coat with the sauce.
+          8. Serve hot on hamburger buns.',
+          240,
+          3,
+          6,
+          600,
           1);
 
 INSERT INTO Recipes
-Values (32, 'Spaghetti Carbonara',
-         '1. Cook the spaghetti according to package instructions. 
-          2. Meanwhile, in a large skillet, cook the bacon over medium heat until crisp. 
-          3. Remove the bacon from the skillet and set aside. 
-          4. In a small bowl, whisk together the eggs, Parmesan cheese, salt, and pepper. 
-          5. Drain the spaghetti and reserve 1 cup of the pasta water. 
-          6. Add the spaghetti to the skillet with the bacon grease and toss to coat. 
-          7. Remove the skillet from the heat and pour in the egg mixture, tossing quickly to combine. 
-          8. Add pasta water as needed to thin out the sauce. 
-          9. Serve hot, garnished with additional Parmesan cheese and chopped parsley.', 
-          25, 
-          3, 
-          4, 
-          500, 
+Values (34, 'Spaghetti Carbonara',
+         '1. Cook the spaghetti according to package instructions.
+          2. Meanwhile, in a large skillet, cook the bacon over medium heat until crisp.
+          3. Remove the bacon from the skillet and set aside.
+          4. In a small bowl, whisk together the eggs, Parmesan cheese, salt, and pepper.
+          5. Drain the spaghetti and reserve 1 cup of the pasta water.
+          6. Add the spaghetti to the skillet with the bacon grease and toss to coat.
+          7. Remove the skillet from the heat and pour in the egg mixture, tossing quickly to combine.
+          8. Add pasta water as needed to thin out the sauce.
+          9. Serve hot, garnished with additional Parmesan cheese and chopped parsley.',
+          25,
+          3,
+          4,
+          500,
           2);
 
 INSERT INTO Recipes
-Values (33, 'Chicken Enchiladas',
-         '1. Preheat the oven to 350°F. 
-          2. In a large skillet, heat the oil over medium-high heat. 
-          3. Add the chicken and cook until browned. 
-          4. Remove the chicken from the skillet and set aside. 
-          5. Add the onion, garlic, and jalapeño to the skillet and cook until softened. 
-          6. Stir in the enchilada sauce, black beans, and corn. 
+Values (35, 'Chicken Enchiladas',
+         '1. Preheat the oven to 350°F.
+          2. In a large skillet, heat the oil over medium-high heat.
+          3. Add the chicken and cook until browned.
+          4. Remove the chicken from the skillet and set aside.
+          5. Add the onion, garlic, and jalapeño to the skillet and cook until softened.
+          6. Stir in the enchilada sauce, black beans, and corn.
           7. Add the chicken back',
           45,
           3,
@@ -829,12 +838,12 @@ Values (33, 'Chicken Enchiladas',
           3);
 
 INSERT INTO Recipes
-Values (34, 'Miso Soup',
-         '1. In a large saucepan, bring water to a boil. 
-          2. Reduce heat to low and whisk in miso paste. 
-          3. Add tofu, mushrooms, and green onions. 
-          4. Simmer for 5-10 minutes. 
-          5. Serve hot.', 
+Values (36, 'Miso Soup',
+         '1. In a large saucepan, bring water to a boil.
+          2. Reduce heat to low and whisk in miso paste.
+          3. Add tofu, mushrooms, and green onions.
+          4. Simmer for 5-10 minutes.
+          5. Serve hot.',
           15,
            1,
            2,
@@ -842,60 +851,60 @@ Values (34, 'Miso Soup',
           10);
 
 INSERT INTO Recipes
-Values (35, 'Beef and Bean Chili',
-         '1. In a large pot or Dutch oven, cook ground beef over medium heat until browned. 
-          2. Add chopped onions, minced garlic, and chopped bell peppers and cook until vegetables are soft. 
-          3. Add canned diced tomatoes, canned kidney beans, tomato paste, and chili powder. 
-          4. Bring to a boil, then reduce heat and simmer for 30 minutes. 
+Values (37, 'Beef and Bean Chili',
+         '1. In a large pot or Dutch oven, cook ground beef over medium heat until browned.
+          2. Add chopped onions, minced garlic, and chopped bell peppers and cook until vegetables are soft.
+          3. Add canned diced tomatoes, canned kidney beans, tomato paste, and chili powder.
+          4. Bring to a boil, then reduce heat and simmer for 30 minutes.
           5. Serve hot with shredded cheddar cheese, sour cream, and chopped green onions.',
            45,
             2,
             6,
-          500, 
+          500,
             3);
 
 INSERT INTO Recipes
-Values (36, 'Spicy Chicken Curry',
-         '1. In a large skillet or Dutch oven, heat oil over medium heat. 
-          2. Add chopped onions and cook until translucent. 
-          3. Add minced garlic and ginger and cook for 1 minute. 
-          4. Add chopped chicken breast and cook until browned. 
-          5. Stir in curry powder, garam masala, and cayenne pepper. 
-          6. Add canned diced tomatoes, coconut milk, and chicken broth. 
-          7. Bring to a boil, then reduce heat and simmer for 20-25 minutes. 
-          8. Serve hot over rice or with naan bread.', 
-          35, 
-          3, 
-          4, 
-          400, 
+Values (38, 'Spicy Chicken Curry',
+         '1. In a large skillet or Dutch oven, heat oil over medium heat.
+          2. Add chopped onions and cook until translucent.
+          3. Add minced garlic and ginger and cook for 1 minute.
+          4. Add chopped chicken breast and cook until browned.
+          5. Stir in curry powder, garam masala, and cayenne pepper.
+          6. Add canned diced tomatoes, coconut milk, and chicken broth.
+          7. Bring to a boil, then reduce heat and simmer for 20-25 minutes.
+          8. Serve hot over rice or with naan bread.',
+          35,
+          3,
+          4,
+          400,
           4);
 
 INSERT INTO Recipes
-Values (37, 'Grilled Teriyaki Salmon',
-         '1. In a small bowl, whisk together soy sauce, brown sugar, minced garlic, and grated ginger to make a marinade. 
-          2. Place salmon fillets in a resealable plastic bag and pour marinade over them. 
-          3. Marinate in the fridge for at least 30 minutes. 
-          4. Preheat grill to medium-high heat. 
-          5. Grill salmon for 5-7 minutes per side or until cooked through. 
-          6. Serve hot with rice and steamed vegetables.', 
-          40, 
-          3, 
-          4, 
-          400, 
+Values (39, 'Grilled Teriyaki Salmon',
+         '1. In a small bowl, whisk together soy sauce, brown sugar, minced garlic, and grated ginger to make a marinade.
+          2. Place salmon fillets in a resealable plastic bag and pour marinade over them.
+          3. Marinate in the fridge for at least 30 minutes.
+          4. Preheat grill to medium-high heat.
+          5. Grill salmon for 5-7 minutes per side or until cooked through.
+          6. Serve hot with rice and steamed vegetables.',
+          40,
+          3,
+          4,
+          400,
           9);
 
 INSERT INTO Recipes
-Values (38, 'Spicy Shrimp Tacos',
-         '1. In a large skillet, heat oil over medium-high heat. 
-          2. Add peeled and deveined shrimp and cook until pink. 
-          3. Remove shrimp from skillet and set aside. 
-          4. In the same skillet, sauté sliced bell peppers and chopped onions until soft. 
-          5. Add minced garlic and cook for 1 minute. 
-          6. Stir in chili powder, cumin, and paprika. 
-          7. Return shrimp to skillet and toss everything together. 
-          8. Warm up corn tortillas and fill with shrimp mixture. 
-          9. Top with sliced avocado and chopped cilantro. 
-          10. Serve hot.', 
+Values (40, 'Spicy Shrimp Tacos',
+         '1. In a large skillet, heat oil over medium-high heat.
+          2. Add peeled and deveined shrimp and cook until pink.
+          3. Remove shrimp from skillet and set aside.
+          4. In the same skillet, sauté sliced bell peppers and chopped onions until soft.
+          5. Add minced garlic and cook for 1 minute.
+          6. Stir in chili powder, cumin, and paprika.
+          7. Return shrimp to skillet and toss everything together.
+          8. Warm up corn tortillas and fill with shrimp mixture.
+          9. Top with sliced avocado and chopped cilantro.
+          10. Serve hot.',
           30,
            3,
            6,
@@ -903,11 +912,11 @@ Values (38, 'Spicy Shrimp Tacos',
            8);
 
 INSERT INTO Recipes
-Values (39, 'Vegetarian Lentil Soup',
-         '1. In a large pot, heat oil over medium heat. 
-          2. Add chopped onions, minced garlic, and chopped carrots and cook until soft. 
-          3. Add dried lentils, canned diced tomatoes, vegetable broth, and dried thyme. 
-          4. Bring to a boil, then reduce heat and simmer for 30-40 minutes or until lentils are tender. 
+Values (41, 'Vegetarian Lentil Soup',
+         '1. In a large pot, heat oil over medium heat.
+          2. Add chopped onions, minced garlic, and chopped carrots and cook until soft.
+          3. Add dried lentils, canned diced tomatoes, vegetable broth, and dried thyme.
+          4. Bring to a boil, then reduce heat and simmer for 30-40 minutes or until lentils are tender.
           5. Serve hot with a dollop of sour cream and chopped fresh parsley.',
            50,
             2,
@@ -916,14 +925,14 @@ Values (39, 'Vegetarian Lentil Soup',
             2);
 
 INSERT INTO Recipes
-Values (40, 'Pork Tenderloin with Apple Chutney',
-         '1. Preheat oven to 400°F. 
-          2. Rub pork tenderloin with olive oil and sprinkle with salt and pepper. 
-          3. Place tenderloin in a roasting pan and roast for 25-30 minutes or until cooked through. 
-          4. Let the pork rest for 10 minutes before slicing. 
-          5. In a small saucepan, combine chopped apples, chopped onion, apple cider vinegar, brown sugar, cinnamon, and a pinch of salt. 
-          6. Cook over medium heat until the mixture thickens, stirring occasionally. 
-          7. Serve the sliced pork tenderloin with the apple chutney on top.', 
+Values (5, 'Pork Tenderloin with Apple Chutney',
+         '1. Preheat oven to 400°F.
+          2. Rub pork tenderloin with olive oil and sprinkle with salt and pepper.
+          3. Place tenderloin in a roasting pan and roast for 25-30 minutes or until cooked through.
+          4. Let the pork rest for 10 minutes before slicing.
+          5. In a small saucepan, combine chopped apples, chopped onion, apple cider vinegar, brown sugar, cinnamon, and a pinch of salt.
+          6. Cook over medium heat until the mixture thickens, stirring occasionally.
+          7. Serve the sliced pork tenderloin with the apple chutney on top.',
           40,
            3,
            4,
@@ -931,7 +940,7 @@ Values (40, 'Pork Tenderloin with Apple Chutney',
           5);
 
 
-)
+
 
 
 INSERT INTO Ingredient_Category
@@ -1005,7 +1014,7 @@ VALUES('Spaghetti', 22, 1, 12, 'oz');
 INSERT INTO Ingredients
 VALUES('Mozzarella Cheese', 22, 1, 2, 'cups');
 INSERT INTO Ingredients
-VALUES('Salt', 22, 1, 1, 'tsp');
+VALUES('Rock salt', 22, 1, 1, 'tsp');
 INSERT INTO Ingredients
 VALUES('Black Pepper', 22, 1, 0.5, 'tsp');
 INSERT INTO Ingredients
@@ -1050,8 +1059,8 @@ INSERT INTO Ingredients
 VALUES('Cheddar Cheese', 17, 2, 1, 'cup');
 INSERT INTO Ingredients
 VALUES('Monterey Jack Cheese', 17, 2, 1, 'cup');
-INSERT INTO ingredients (ingredient_name, recipe_id, category_id, amount, unit_of_amount)
-VALUES 
+INSERT INTO Ingredients (ingredient_name, recipe_id, category_id, amount, unit)
+VALUES
   ('Ground Beef', 5, 1, 1, 'lb'),
   ('Onion', 5, 1, 1, 'medium'),
   ('Garlic', 5, 1, 2, 'cloves'),
