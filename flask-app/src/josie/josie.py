@@ -25,10 +25,8 @@ def get_accounts():
 # Add a new account to the database
 @josie.route('/accounts', methods=['POST'])
 def new_account():
-
     the_data = request.json
     current_app.logger.info(the_data)
-
     username = the_data['username']
     password = the_data['pword']
     first_name = the_data['first_name']
@@ -36,19 +34,15 @@ def new_account():
     email = the_data['email']
     phone = the_data['phone_number']
     bio = the_data['bio']
-
     query = '''
     insert into Accounts values("{}", "{}", "{}", "{}", "{}", "{}", "{}")
     '''.format(username, password, first_name, last_name, bio, email, str(phone))
-    
     cursor = db.get_db().cursor()
     cursor.execute(query)
-
     query2 = 'select * from Accounts where username="{}"'.format(username)
     cursor2 = db.get_db().cursor()
     cursor2.execute(query2)
     db.get_db().commit()
-
     column_headers = [x[0] for x in cursor2.description]
     json_data = []
     theData = cursor2.fetchall()
@@ -200,10 +194,6 @@ def delete_accounts_bio():
 # Follows a user 
 @josie.route('/follow/<username>/<follow>', methods=['POST'])
 def follow_user(username, follow):
-    # the_data = request.json
-    # current_app.logger.info(the_data)
-    # username = the_data['username']
-    # follow = the_data['follow']
     cursor = db.get_db().cursor()
     query = 'insert into FollowerRelationship(A, B) values("{}", "{}")'.format(username, follow)
     cursor.execute(query)
@@ -223,10 +213,6 @@ def follow_user(username, follow):
 # Unfollows a user
 @josie.route('/unfollow/<username>/<unfollow>', methods=['DELETE'])
 def unfollow_user(username, unfollow):
-    # the_data = request.json
-    # current_app.logger.info(the_data)
-    # username = the_data['username']
-    # unfollow = the_data['unfollow']
     cursor = db.get_db().cursor()
     query = 'delete from FollowerRelationship where A="{}" and B="{}"'.format(username, unfollow)
     cursor.execute(query)
@@ -256,6 +242,7 @@ def get_likes():
     theData = cursor.fetchall()
     for row in theData:
         json_data.append(dict(zip(column_headers, row)))
+
     return jsonify(json_data)
 
 
@@ -306,9 +293,6 @@ def delete_like():
 # Gets all the comments and related details for a given post
 @josie.route('/comments/<post_id>', methods=['GET'])
 def get_comments(post_id):
-    # the_data = request.json
-    # current_app.logger.info(the_data)
-    # postID = the_data['post_id2']
     cursor = db.get_db().cursor()
     query = 'select * from Comments where post_id={}'.format(post_id)
     cursor.execute(query)
@@ -333,10 +317,8 @@ def add_comments():
     insert into Comments(commenter, post_id, content)
     values("{}", "{}", "{}")
     '''.format(commenter, post_id, content)
-    
     cursor = db.get_db().cursor()
     cursor.execute(query)
-
     query2 = 'select * from Comments where post_id="{}"'.format(post_id)
     cursor2 = db.get_db().cursor()
     cursor2.execute(query2)

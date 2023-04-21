@@ -170,18 +170,24 @@
     "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
     "containerId": "",
     "name": "FollowerUser",
-    "url": "localhost:8001/j/follow",
+    "url": "localhost:8001/j/follow/{username}/{follow}",
     "method": "POST",
     "sortNum": 130000,
     "created": "2023-04-19T21:01:10.329Z",
-    "modified": "2023-04-19T21:02:02.032Z",
+    "modified": "2023-04-21T02:33:37.175Z",
     "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"username\": \"sena.szczepaniuk\",\n  \"follow\": \"nagiaboushaca\"\n}",
-      "form": []
-    },
+    "params": [
+      {
+        "name": "username",
+        "value": "sena.szczepaniuk",
+        "isPath": true
+      },
+      {
+        "name": "follow",
+        "value": "nagiaboushaca",
+        "isPath": true
+      }
+    ],
     "tests": []
   },
   {
@@ -189,18 +195,24 @@
     "colId": "b5974731-2633-43ed-a4e1-84b41c4f3aae",
     "containerId": "",
     "name": "UnfollowUser",
-    "url": "localhost:8001/j/unfollow",
+    "url": "localhost:8001/j/unfollow/{username}/{unfollow}",
     "method": "DELETE",
     "sortNum": 140000,
     "created": "2023-04-19T21:02:19.724Z",
-    "modified": "2023-04-19T21:03:02.801Z",
+    "modified": "2023-04-21T02:34:15.107Z",
     "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"username\": \"sena.szczepaniuk\",\n  \"unfollow\": \"nagiaboushaca\"\n}",
-      "form": []
-    },
+    "params": [
+      {
+        "name": "username",
+        "value": "sena.szczepaniuk",
+        "isPath": true
+      },
+      {
+        "name": "unfollow",
+        "value": "nagiaboushaca",
+        "isPath": true
+      }
+    ],
     "tests": []
   },
   {
@@ -393,12 +405,12 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-20T18:58:49.903Z",
-    "modified": "2023-04-20T23:01:33.369Z",
+    "modified": "2023-04-21T02:01:50.451Z",
     "headers": [],
     "params": [
       {
         "name": "postid",
-        "value": "1",
+        "value": "43",
         "isPath": true
       }
     ],
@@ -527,12 +539,12 @@
     "method": "GET",
     "sortNum": 90000,
     "created": "2023-04-20T19:09:53.162Z",
-    "modified": "2023-04-20T19:10:22.904Z",
+    "modified": "2023-04-21T02:02:38.242Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"recipe_time\":\"50\"\n}",
+      "raw": "{\n  \"recipe_time\":\"15\"\n}",
       "form": []
     },
     "tests": []
