@@ -304,13 +304,13 @@ def delete_like():
     return jsonify(json_data)
 
 # Gets all the comments and related details for a given post
-@josie.route('/comments', methods=['GET'])
-def get_comments():
-    the_data = request.json
-    current_app.logger.info(the_data)
-    postID = the_data['post_id']
+@josie.route('/comments/<post_id>', methods=['GET'])
+def get_comments(post_id):
+    # the_data = request.json
+    # current_app.logger.info(the_data)
+    # postID = the_data['post_id2']
     cursor = db.get_db().cursor()
-    query = 'select * from Comments where post_id={}'.format(postID)
+    query = 'select * from Comments where post_id={}'.format(post_id)
     cursor.execute(query)
     column_headers = [x[0] for x in cursor.description]
     json_data = []
@@ -326,7 +326,7 @@ def add_comments():
     the_data = request.json
     current_app.logger.info(the_data)
     commenter = the_data['commenter']
-    post_id = the_data['post_id']
+    post_id = the_data['post_id2']
     content = the_data['content']
     cursor = db.get_db().cursor()
     query = '''
@@ -412,6 +412,7 @@ def get_posts():
         json_data.append(dict(zip(column_headers, row)))
 
     return jsonify(json_data)
+
 
 # Add a post 
 @josie.route('/posts', methods=['POST'])

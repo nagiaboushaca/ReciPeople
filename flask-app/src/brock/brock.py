@@ -21,12 +21,12 @@ def get_recipes():
 
     return jsonify(json_data)
 
-# Get all the details of a recipe a given post
-@brock.route('/recipeFromPost', methods=['GET'])
-def get_recipe():
-    the_data = request.json
-    current_app.logger.info(the_data)
-    postid = the_data['post_id_json']
+# Get all the details of a given recipe
+@brock.route('/recipeFromPost/<postid>', methods=['GET'])
+def get_recipe(postid):
+    # the_data = request.json
+    # current_app.logger.info(the_data)
+    # postid = the_data['post_id_json']
     cursor = db.get_db().cursor()
     query = 'select * from Recipes where recipe_id ={}'.format(postid)
     cursor.execute(query)
