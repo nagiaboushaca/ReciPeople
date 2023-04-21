@@ -11,6 +11,9 @@ On our app you can follow users, like, comment on, and save posts, and view many
 We have two blueprints for two of our user personas, Brock and Josie. We included all the 
 routes in their respective folders. 
 
+link to overview video:
+https://drive.google.com/file/d/1BdQGczTwhREKrDrplgTU8sqqjCe2d2c5/view?usp=sharing
+
 
 
 
