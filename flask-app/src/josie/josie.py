@@ -198,12 +198,12 @@ def delete_accounts_bio():
     return jsonify(json_data)
 
 # Follows a user 
-@josie.route('/follow', methods=['POST'])
-def follow_user():
-    the_data = request.json
-    current_app.logger.info(the_data)
-    username = the_data['username']
-    follow = the_data['follow']
+@josie.route('/follow/<username>/<follow>', methods=['POST'])
+def follow_user(username, follow):
+    # the_data = request.json
+    # current_app.logger.info(the_data)
+    # username = the_data['username']
+    # follow = the_data['follow']
     cursor = db.get_db().cursor()
     query = 'insert into FollowerRelationship(A, B) values("{}", "{}")'.format(username, follow)
     cursor.execute(query)
@@ -221,12 +221,12 @@ def follow_user():
 
 
 # Unfollows a user
-@josie.route('/unfollow', methods=['DELETE'])
-def unfollow_user():
-    the_data = request.json
-    current_app.logger.info(the_data)
-    username = the_data['username']
-    unfollow = the_data['unfollow']
+@josie.route('/unfollow/<username>/<unfollow>', methods=['DELETE'])
+def unfollow_user(username, unfollow):
+    # the_data = request.json
+    # current_app.logger.info(the_data)
+    # username = the_data['username']
+    # unfollow = the_data['unfollow']
     cursor = db.get_db().cursor()
     query = 'delete from FollowerRelationship where A="{}" and B="{}"'.format(username, unfollow)
     cursor.execute(query)
