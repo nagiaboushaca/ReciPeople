@@ -208,6 +208,50 @@ VALUES ('nagiaboushaca','sena.szczepaniuk');
 INSERT INTO FollowerRelationship
 VALUES ('wcolsey','sena.szczepaniuk');
 
+INSERT INTO FollowerRelationship
+VALUES
+('tnguyen', 'bdavis'),
+('slee', 'jmorris'),
+('jwang', 'jmorris'),
+('bchen', 'ahernandez'),
+('jdoe', 'jkim'),
+('skim', 'jkim'),
+('rwilliams', 'skim'),
+('hhernandez', 'jdoe'),
+('dlee', 'jkim'),
+('mjones', 'wcolsey'),
+('msmith', 'jkim'),
+('msmith', 'jjackson'),
+('mgarcia', 'jjackson'),
+('jjackson', 'tnguyen'),
+('rwilliams', 'ssanchez'),
+('khan', 'ssanchez'),
+('ssanchez', 'mgarcia'),
+('jrivera', 'jkim'),
+('dlee', 'jjackson'),
+('hhernandez', 'dlee'),
+('dlee', 'hhernandez'),
+('bchen', 'jdoe'),
+('jwang', 'rwilliams'),
+('jwang', 'skim'),
+('jlai', 'jwang'),
+('wcolsey', 'msmith'),
+('swhite', 'sena.szczepaniuk'),
+('jthomas', 'jkim'),
+('jthomas', 'tnguyen'),
+('kjohnson', 'mturner'),
+('mturner', 'jjackson'),
+('mturner', 'ssanchez'),
+('slee', 'rwilliams'),
+('rwilliams', 'bchen'),
+('bchen', 'jrivera'),
+('swhite', 'dlee'),
+('swhite', 'mturner'),
+('jwang', 'swhite'), 
+('jrobinson', 'skim'),
+('jrobinson', 'ssanchez'),
+('jrobinson', 'jlai');
+
 
 INSERT INTO Posts (poster, caption, post_time)
 VALUES ('nagiaboushaca',
@@ -1156,6 +1200,49 @@ INSERT INTO Equipment
 VALUES ('Butter knife', 3);
 INSERT INTO Equipment
 VALUES ('Toaster', 3);
+INSERT INTO Equipment
+VALUES
+('Tsp', 1),
+('Chopping Knife', 2),
+('Bowl', 3),
+('Spatula', 4),
+('Tbsp', 3),
+('Measuring Cups', 5),
+('Oven', 6),
+('Grill', 7),
+('Skillet', 8),
+('Kettle', 8),
+('Salt shaker', 8),
+('Fork', 9),
+('Big fork', 10),
+('Whisk', 11),
+('Mixing bowl', 12),
+('Cups', 12),
+('Tiny spoon', 13),
+('Tiny fork', 14),
+('Pyrex', 15),
+('Container', 16),
+('Aluminum foil', 17),
+('Plastic wrap', 18),
+('Parchment paper', 19),
+('Toaster oven', 20),
+('Microwave', 21),
+('Sink', 22),
+('Chopsticks', 23),
+('Salad bowl', 24),
+('Wooden serving utensils', 25),
+('Rice bowl', 26),
+('Wooden bowl', 27),
+('Serving dishes', 28),
+('Dough scraper', 29),
+('Automatic mixer', 30)
+('Big whisk', 31),
+('Glass bowl', 31),
+('Metal Bowl', 32),
+('Really big bowl', 33), 
+('Sifter', 34),
+('Plastic bags', 35),
+('Roller', 36);
 
 INSERT INTO Saved_recipes
 VALUES ('nagiaboushaca', 2);
@@ -1163,4 +1250,46 @@ INSERT INTO Saved_recipes
 VALUES ('wcolsey', 1);
 INSERT INTO Saved_recipes
 VALUES ('sena.szczepaniuk', 3);
-
+INSERT INTO Saved_recipes
+VALUES
+('tnguyen', 1),
+('slee', 2),
+('jwang', 3),
+('bchen', 4),
+('jdoe', 3),
+('skim', 5),
+('rwilliams', 6),
+('hhernandez', 7),
+('dlee', 8),
+('mjones', 8),
+('msmith', 8),
+('msmith', 9),
+('mgarcia', 10),
+('jjackson', 11),
+('rwilliams', 12),
+('khan', 12),
+('ssanchez', 13),
+('jrivera', 14),
+('dlee', 15),
+('hhernandez', 16),
+('dlee', 17),
+('bchen', 18),
+('jwang', 19),
+('jwang', 20),
+('jlai', 21),
+('wcolsey', 22),
+('swhite', 23),
+('jthomas', 24),
+('jthomas', 25),
+('kjohnson', 26),
+('mturner', 27),
+('mturner', 28),
+('slee', 29),
+('rwilliams', 30),
+('bchen', 31),
+('swhite', 31),
+('swhite', 32),
+('jwang', 33), 
+('jrobinson', 34),
+('jrobinson', 35),
+('jrobinson', 36);
